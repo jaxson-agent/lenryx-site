@@ -1,0 +1,151 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "The Team — LENRYX.ai",
+  description: "Meet the three founders behind LENRYX — strategy, leadership, and AI systems working as one operating layer.",
+};
+
+const team = [
+  {
+    initials: "JG",
+    name: "Jason Gallen",
+    title: "Strategy & Venture Architecture",
+    pillar: "Strategy",
+    location: null,
+    bio: "Multi-venture operator and strategic advisor at The Gallen Group. Jason builds and scales businesses at the intersection of brand, distribution, and digital systems — with active ventures spanning CPG, SaaS, media, and eCommerce.",
+    extended: "Jason's edge is connecting ventures into ecosystems where partnerships, talent, and technology compound into leverage. He operates across multiple layers simultaneously — strategy, deal-making, brand direction, growth planning, and execution oversight — bringing the same rigor to every engagement LENRYX takes on.",
+    edge: "Connecting ventures into ecosystems where partnerships, talent, and technology compound into leverage.",
+    links: [] as { label: string; href: string }[],
+  },
+  {
+    initials: "JR",
+    name: "JM Ryerson",
+    title: "Leadership & Human Performance",
+    pillar: "Leadership",
+    location: "Boca Raton, FL",
+    bio: "Co-founder & CEO of Let's Go Win. JM has founded and sold three successful businesses, and now helps high-achieving professionals and organizations unlock elite performance — without burning out.",
+    extended: "With 20+ years mastering what it takes to build thriving companies and elite teams, JM brings a framework for sustainable high performance that goes beyond tactics — building the leadership capacity that makes execution repeatable. His clients don't just hit numbers. They build cultures that compound.",
+    edge: "Bestselling author (Let's Go Win, Champion's Daily Playbook, Upgrade), international speaker, and Leadership & Performance Coach.",
+    links: [],
+  },
+  {
+    initials: "AL",
+    name: "Andreas Lengyel",
+    title: "Systems & AI Infrastructure",
+    pillar: "Systems + AI",
+    location: "Palo Alto, CA",
+    bio: "Purpose-driven AI enthusiast and software engineer with deep technical depth in software engineering, fintech, and startup infrastructure.",
+    extended: "Andreas is the systems architect who translates strategy and leadership direction into scalable, intelligent infrastructure. His background spans fintech, startup engineering, and AI-native systems — giving LENRYX the technical credibility to build operating layers that actually run at scale.",
+    edge: "The systems architect who turns strategy into scalable, intelligent execution.",
+    links: [
+      { label: "LinkedIn", href: "https://linkedin.com/in/andreaslengyels" },
+      { label: "GitHub", href: "https://github.com/AndreasL" },
+    ],
+  },
+];
+
+export default function TeamPage() {
+  return (
+    <main className="bg-black min-h-screen text-white">
+      {/* Nav */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <Link href="/">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/lenryx-logo-v2.svg" alt="LENRYX.ai" style={{ height: 40, width: "auto" }} />
+          </Link>
+          <div className="flex items-center gap-6 text-sm text-gray-400">
+            <Link href="/" className="hover:text-white transition-colors">← Back</Link>
+            <Link href="/#contact" className="border border-[#1B8EF8] text-[#1B8EF8] px-4 py-1.5 rounded hover:bg-[#1B8EF8] hover:text-black transition-all text-sm font-medium">
+              Let&apos;s Talk
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      <div className="pt-32 pb-32 px-6">
+        <div className="max-w-5xl mx-auto">
+
+          {/* Header */}
+          <div className="mb-20">
+            <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Founders</span>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mt-4 mb-6 tracking-tight leading-tight">
+              Three disciplines.<br />
+              <span className="text-gray-500 font-normal">One operating layer.</span>
+            </h1>
+            <p className="text-gray-400 text-xl max-w-2xl leading-relaxed">
+              Each founder owns a distinct domain. Together they cover the full stack — from intelligence to measurable output.
+            </p>
+          </div>
+
+          {/* Team cards — full detail */}
+          <div className="space-y-8">
+            {team.map((m, i) => (
+              <div key={m.name} className="group bg-[#0A0A0A] rounded-xl border border-white/5 hover:border-[#1B8EF8]/20 transition-all duration-300 overflow-hidden">
+                <div className="h-0.5 bg-[#1B8EF8]" />
+                <div className="p-10 md:p-12">
+                  <div className="flex flex-col md:flex-row gap-8 items-start">
+                    {/* Avatar + pillar badge */}
+                    <div className="shrink-0 flex flex-col items-center gap-3">
+                      <div className="w-20 h-20 rounded-full border border-[#1B8EF8]/50 flex items-center justify-center bg-black">
+                        <span className="text-[#1B8EF8] font-bold text-lg tracking-widest">{m.initials}</span>
+                      </div>
+                      <span className="text-[#1B8EF8]/60 text-xs tracking-widest font-mono uppercase">{String(i + 1).padStart(2, "0")}</span>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1">
+                      <div className="flex flex-wrap items-baseline gap-3 mb-1">
+                        <h2 className="text-white font-bold text-2xl">{m.name}</h2>
+                        <span className="text-[#1B8EF8]/50 text-xs tracking-widest uppercase border border-[#1B8EF8]/20 rounded px-2 py-0.5">{m.pillar}</span>
+                      </div>
+                      <p className="text-[#1B8EF8] text-sm font-medium tracking-[0.12em] uppercase mb-1">{m.title}</p>
+                      {m.location && <p className="text-gray-600 text-xs mb-6">{m.location}</p>}
+                      {!m.location && <div className="mb-6" />}
+
+                      <div className="h-px bg-white/5 mb-6" />
+
+                      <p className="text-gray-400 leading-relaxed mb-4">{m.bio}</p>
+                      <p className="text-gray-500 leading-relaxed mb-6">{m.extended}</p>
+                      <p className="text-white/40 text-sm italic leading-relaxed">{m.edge}</p>
+
+                      {m.links.length > 0 && (
+                        <div className="flex gap-5 mt-6 pt-6 border-t border-white/5">
+                          {m.links.map((l) => (
+                            <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
+                              className="text-sm text-[#1B8EF8]/60 hover:text-[#1B8EF8] transition-colors">
+                              {l.label} ↗
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="mt-20 text-center">
+            <p className="text-gray-500 mb-6">Ready to work with this team?</p>
+            <Link href="/#contact" className="inline-block bg-[#1B8EF8] text-black font-semibold px-8 py-3.5 rounded hover:bg-[#1B8EF8]/90 transition-colors text-sm tracking-wide">
+              Start a Conversation
+            </Link>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="border-t border-white/5 py-8 px-6">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/lenryx-logo-v2.svg" alt="LENRYX.ai" style={{ height: 36, width: "auto" }} />
+          <p className="text-gray-600 text-sm">© 2026 LENRYX. All rights reserved.</p>
+        </div>
+      </footer>
+    </main>
+  );
+}

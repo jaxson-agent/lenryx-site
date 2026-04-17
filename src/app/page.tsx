@@ -139,6 +139,7 @@ function Nav() {
           <a href="#model" className="hover:text-white transition-colors">The Model</a>
           <a href="#team" className="hover:text-white transition-colors">Team</a>
           <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+          <a href="/team" className="hover:text-white transition-colors">Team</a>
           <a
             href="#contact"
             className="border border-[#1B8EF8] text-[#1B8EF8] px-4 py-1.5 rounded hover:bg-[#1B8EF8] hover:text-black transition-all text-sm font-medium"
@@ -175,126 +176,7 @@ function NodeIcon({ size = 48 }: { size?: number }) {
   );
 }
 
-// ── Pillars + interactive founder reveal ───────────────────────────────────
-const pillars = [
-  {
-    num: "01",
-    title: "Strategy",
-    subtitle: "What to do.",
-    body: "We diagnose where you are, define where you're going, and map the path. No generic frameworks — precision decisions built on your actual situation.",
-    founder: {
-      initials: "JG",
-      name: "Jason Gallen",
-      title: "Strategy & Venture Architecture",
-      bio: "Multi-venture operator and strategic advisor at The Gallen Group. Jason builds and scales businesses at the intersection of brand, distribution, and digital systems — with active ventures spanning CPG, SaaS, media, and eCommerce.",
-      edge: "His edge: connecting ventures into ecosystems where partnerships, talent, and technology compound into leverage.",
-      links: [] as {label:string;href:string}[],
-    },
-  },
-  {
-    num: "02",
-    title: "Leadership",
-    subtitle: "Who drives it.",
-    body: "Human performance, team alignment, and the conviction to execute. The best strategy fails without the right people driving it.",
-    founder: {
-      initials: "JR",
-      name: "JM Ryerson",
-      title: "Leadership & Human Performance",
-      bio: "Co-founder & CEO of Let's Go Win. JM has founded and sold three successful businesses, and now helps high-achieving professionals and organizations unlock elite performance — without burning out.",
-      edge: "Bestselling author (Let's Go Win, Champion's Daily Playbook, Upgrade), international speaker, and Leadership & Performance Coach with 20+ years mastering what it takes to build thriving teams.",
-      links: [],
-    },
-  },
-  {
-    num: "03",
-    title: "Systems + AI",
-    subtitle: "How it gets done.",
-    body: "Intelligent systems that scale execution without scaling headcount. The infrastructure that makes strategy repeatable and output measurable.",
-    founder: {
-      initials: "AL",
-      name: "Andreas Lengyel",
-      title: "Systems & AI Infrastructure",
-      bio: "Purpose-driven AI enthusiast and software engineer with deep technical depth in software engineering, fintech, and startup infrastructure.",
-      edge: "The systems architect who turns strategy into scalable, intelligent execution.",
-      links: [{ label: "LinkedIn", href: "https://linkedin.com/in/andreaslengyels" }, { label: "GitHub", href: "https://github.com/AndreasL" }],
-    },
-  },
-];
-
-function PillarsWithFounders() {
-  const [active, setActive] = useState<number | null>(null);
-  const founder = active !== null ? pillars[active].founder : null;
-
-  return (
-    <section className="pt-12 pb-20 px-6 bg-[#050505]">
-      <div className="max-w-6xl mx-auto">
-        <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Pillars</span>
-        <h2 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-4 tracking-tight">
-          Three disciplines.<br />
-          <span className="text-gray-500 font-normal">One integrated system.</span>
-        </h2>
-        <p className="text-gray-600 text-sm mb-12">Select a pillar to meet the founder who leads it.</p>
-
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          {pillars.map((p, i) => (
-            <button
-              key={p.num}
-              onClick={() => setActive(active === i ? null : i)}
-              className={`text-left group rounded-xl border transition-all duration-300 overflow-hidden focus:outline-none ${
-                active === i
-                  ? "border-[#1B8EF8] bg-[#0D1F35]"
-                  : "border-white/5 bg-[#111111] hover:border-[#1B8EF8]/40"
-              }`}
-            >
-              <div className={`h-0.5 transition-colors duration-300 ${active === i ? "bg-[#1B8EF8]" : "bg-[#1B8EF8]/40 group-hover:bg-[#1B8EF8]"}`} />
-              <div className="p-8">
-                <span className="text-[#1B8EF8]/40 text-xs font-mono tracking-widest">{p.num}</span>
-                <h3 className="text-white font-bold text-xl mt-3 mb-1">{p.title}</h3>
-                <p className="text-[#1B8EF8] text-sm mb-4">{p.subtitle}</p>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">{p.body}</p>
-                <span className={`text-xs tracking-wide transition-colors duration-200 ${active === i ? "text-[#1B8EF8]" : "text-gray-600 group-hover:text-[#1B8EF8]/70"}`}>
-                  {active === i ? "Hide founder ↑" : "Meet the founder →"}
-                </span>
-              </div>
-            </button>
-          ))}
-        </div>
-
-        {/* Founder reveal panel */}
-        {founder && (
-          <div className="rounded-xl border border-[#1B8EF8]/25 bg-[#0A0A0A] overflow-hidden">
-            <div className="h-0.5 bg-[#1B8EF8]" />
-            <div className="p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start">
-              {/* Avatar */}
-              <div className="shrink-0">
-                <div className="w-16 h-16 rounded-full border border-[#1B8EF8]/50 flex items-center justify-center bg-black">
-                  <span className="text-[#1B8EF8] font-bold tracking-widest">{founder.initials}</span>
-                </div>
-              </div>
-              {/* Bio */}
-              <div className="flex-1">
-                <h3 className="text-white font-bold text-xl mb-1">{founder.name}</h3>
-                <p className="text-[#1B8EF8] text-xs font-medium tracking-[0.15em] uppercase mb-5">{founder.title}</p>
-                <p className="text-gray-400 text-sm leading-relaxed mb-3">{founder.bio}</p>
-                <p className="text-white/50 text-xs leading-relaxed italic">{founder.edge}</p>
-                {founder.links.length > 0 && (
-                  <div className="flex gap-4 mt-5">
-                    {founder.links.map((l) => (
-                      <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
-                        className="text-xs text-[#1B8EF8]/60 hover:text-[#1B8EF8] transition-colors">
-                        {l.label} ↗
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </section>
-  );
-}
+// (no interactive pillar component — static pillars restored)
 
 // ── Main page ──────────────────────────────────────────────────────────────
 export default function Home() {
@@ -394,8 +276,118 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── THREE PILLARS + FOUNDER REVEAL ───────────────────────────── */}
-      <PillarsWithFounders />
+      {/* ── THREE PILLARS ─────────────────────────────────────────────── */}
+      <section className="pt-12 pb-20 px-6 bg-[#050505]">
+        <div className="max-w-6xl mx-auto">
+          <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Pillars</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-16 tracking-tight">
+            Three disciplines.<br />
+            <span className="text-gray-500 font-normal">One integrated system.</span>
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { num: "01", title: "Strategy", subtitle: "What to do.", body: "We diagnose where you are, define where you're going, and map the path. No generic frameworks — precision decisions built on your actual situation." },
+              { num: "02", title: "Leadership", subtitle: "Who drives it.", body: "Human performance, team alignment, and the conviction to execute. The best strategy fails without the right people driving it." },
+              { num: "03", title: "Systems + AI", subtitle: "How it gets done.", body: "Intelligent systems that scale execution without scaling headcount. The infrastructure that makes strategy repeatable and output measurable." },
+            ].map((p) => (
+              <div key={p.num} className="group bg-[#111111] rounded-xl border border-white/5 hover:border-[#1B8EF8]/30 transition-all duration-300 overflow-hidden">
+                <div className="h-0.5 bg-[#1B8EF8]" />
+                <div className="p-8">
+                  <span className="text-[#1B8EF8]/40 text-xs font-mono tracking-widest">{p.num}</span>
+                  <h3 className="text-white font-bold text-xl mt-3 mb-1">{p.title}</h3>
+                  <p className="text-[#1B8EF8] text-sm mb-4">{p.subtitle}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed">{p.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── THE OPPORTUNITY (3-part elevated section) ─────────────────── */}
+      <section className="py-32 px-6">
+        <div className="max-w-5xl mx-auto">
+
+          {/* Part A — The Gap */}
+          <div className="mb-24">
+            <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Gap</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 mb-8 tracking-tight leading-tight">
+              Most organizations have<br className="hidden md:block" /> the intelligence.<br />
+              <span className="text-gray-500 font-normal">Almost none have the infrastructure<br className="hidden md:block" /> to convert it.</span>
+            </h2>
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <p className="text-gray-400 text-lg leading-relaxed">
+                Strategies get built. AI tools get deployed. Leadership teams get trained. And still — execution stalls. The gap isn't knowledge. It&apos;s the operating layer between intelligence and output.
+              </p>
+              <p className="text-gray-400 text-lg leading-relaxed">
+                That layer — the connective tissue between what you know, who leads, and how the systems move — is exactly what most organizations never build. That&apos;s what LENRYX exists to solve.
+              </p>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="flex items-center gap-4 mb-24">
+            <div className="flex-1 h-px bg-white/5" />
+            <div className="w-1.5 h-1.5 rounded-full bg-[#1B8EF8]/40" />
+            <div className="flex-1 h-px bg-white/5" />
+          </div>
+
+          {/* Part B — The Case for Now */}
+          <div className="mb-24">
+            <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Case for Now</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 mb-8 tracking-tight leading-tight">
+              The window is narrow.<br />
+              <span className="text-gray-500 font-normal">The organizations that build the execution layer now will be impossible to catch.</span>
+            </h2>
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <p className="text-gray-400 text-lg leading-relaxed">
+                AI is collapsing timelines. The distance between strategy and output used to be measured in quarters. Now it&apos;s measured in weeks. Organizations that haven&apos;t built the operating infrastructure to keep pace aren&apos;t just falling behind — they&apos;re falling out.
+              </p>
+              <p className="text-gray-400 text-lg leading-relaxed">
+                The competitive advantage isn&apos;t who has the best ideas anymore. It&apos;s who executes fastest at the highest level of intelligence. LENRYX is built for exactly this moment.
+              </p>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="flex items-center gap-4 mb-24">
+            <div className="flex-1 h-px bg-white/5" />
+            <div className="w-1.5 h-1.5 rounded-full bg-[#1B8EF8]/40" />
+            <div className="flex-1 h-px bg-white/5" />
+          </div>
+
+          {/* Part C — Who We Work With */}
+          <div>
+            <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">Who We Work With</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 mb-8 tracking-tight leading-tight">
+              We don&apos;t work with everyone.<br />
+              <span className="text-gray-500 font-normal">We work with operators who already know what they&apos;re building.</span>
+            </h2>
+            <p className="text-gray-400 text-lg leading-relaxed mb-12 max-w-3xl">
+              Not industry. Not company size. Mindset. The right partner for LENRYX is conviction-driven, execution-constrained, and already moving. They don&apos;t need to be sold on the vision — they need the operating architecture to make it real.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { label: "Fast-moving founders", desc: "Building at speed and need the infrastructure to match their ambition without adding complexity." },
+                { label: "Growth-stage operators", desc: "Sitting on real capability and market position — but execution keeps breaking at the seams." },
+                { label: "Leadership teams in transition", desc: "Navigating change, new markets, or transformation and need strategy, systems, and conviction aligned." },
+              ].map((item) => (
+                <div key={item.label} className="border border-white/5 rounded-xl p-6 bg-[#0A0A0A]">
+                  <div className="w-1 h-8 bg-[#1B8EF8] rounded mb-5" />
+                  <h3 className="text-white font-semibold mb-2">{item.label}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-12">
+              <a href="#contact" className="inline-block border border-[#1B8EF8] text-[#1B8EF8] px-8 py-3.5 rounded hover:bg-[#1B8EF8] hover:text-black transition-all text-sm font-medium tracking-wide">
+                See if we&apos;re a fit →
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
 
       {/* ── THE MODEL ─────────────────────────────────────────────────── */}
       <section id="model" className="py-32 px-6">
