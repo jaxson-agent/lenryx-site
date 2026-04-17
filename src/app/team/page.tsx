@@ -71,11 +71,11 @@ export default function TeamPage() {
           <div className="mb-20">
             <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Founders</span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-4 mb-6 tracking-tight leading-tight">
-              Three disciplines.<br />
-              <span className="text-gray-500 font-normal">One operating layer.</span>
+              Three perspectives.<br />
+              <span className="text-gray-500 font-normal">One point of view.</span>
             </h1>
             <p className="text-gray-400 text-xl max-w-2xl leading-relaxed">
-              Each founder owns a distinct domain. Together they cover the full stack — from intelligence to measurable output.
+              LENRYX wasn&apos;t built by assigning lanes. It was built by three people whose thinking naturally intersects — strategy, leadership, and systems that don&apos;t just inform each other, they amplify each other. The output is greater than any one of them working alone.
             </p>
           </div>
 
