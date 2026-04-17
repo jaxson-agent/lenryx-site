@@ -133,7 +133,7 @@ function Nav() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/lenryx-logo.svg" alt="LENRYX.ai" style={{ height: 40, width: "auto" }} />
+        <img src="/lenryx-logo-v2.svg" alt="LENRYX.ai" style={{ height: 40, width: "auto" }} />
         <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
           <a href="#what-we-are" className="hover:text-white transition-colors">What We Are</a>
           <a href="#model" className="hover:text-white transition-colors">The Model</a>
@@ -188,7 +188,7 @@ export default function Home() {
           {/* SVG logo — animation baked in, no overlay hack */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/lenryx-logo.svg"
+            src="/lenryx-logo-v2.svg"
             alt="LENRYX.ai"
             className="mx-auto mb-8"
             style={{ width: 480, height: "auto", maxWidth: "90vw" }}
@@ -492,7 +492,7 @@ export default function Home() {
       <footer className="border-t border-white/5 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/lenryx-logo.svg" alt="LENRYX.ai" style={{ height: 36, width: "auto" }} />
+          <img src="/lenryx-logo-v2.svg" alt="LENRYX.ai" style={{ height: 36, width: "auto" }} />
           <p className="text-gray-600 text-sm">© 2026 LENRYX. All rights reserved.</p>
         </div>
       </footer>
