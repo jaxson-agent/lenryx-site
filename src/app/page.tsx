@@ -238,7 +238,7 @@ export default function Home() {
       </section>
 
       {/* ── WHAT WE ARE ──────────────────────────────────────────────── */}
-      <section id="what-we-are" className="pt-20 pb-32 px-6">
+      <section id="what-we-are" className="pt-16 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
           <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">What We Are</span>
           <div className="mt-12 grid md:grid-cols-2 gap-12 items-start">
@@ -296,7 +296,7 @@ export default function Home() {
       </div>
 
       {/* ── THREE PILLARS ─────────────────────────────────────────────── */}
-      <section className="pt-12 pb-20 px-6 bg-[#050505]">
+      <section className="pt-10 pb-16 px-6 bg-[#050505]">
         <div className="max-w-6xl mx-auto">
           <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Pillars</span>
           <h2 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-16 tracking-tight">
@@ -324,11 +324,11 @@ export default function Home() {
       </section>
 
       {/* ── THE OPPORTUNITY (3-part elevated section) ─────────────────── */}
-      <section className="py-32 px-6">
+      <section className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
 
           {/* Part A — The Gap */}
-          <div className="mb-24">
+          <div className="mb-16">
             <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Gap</span>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 mb-8 tracking-tight leading-tight">
               Most organizations have<br className="hidden md:block" /> the intelligence.<br />
@@ -352,7 +352,7 @@ export default function Home() {
           </div>
 
           {/* Part B — The Case for Now */}
-          <div className="mb-24">
+          <div className="mb-16">
             <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Case for Now</span>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 mb-8 tracking-tight leading-tight">
               The window is narrow.<br />
@@ -409,7 +409,7 @@ export default function Home() {
       </section>
 
       {/* ── THE MODEL ─────────────────────────────────────────────────── */}
-      <section id="model" className="py-32 px-6">
+      <section id="model" className="py-20 px-6">
         <div className="max-w-5xl mx-auto text-center">
           <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Model</span>
           <h2 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-16 tracking-tight">
@@ -444,7 +444,7 @@ export default function Home() {
       {/* team section replaced by pillar-driven founder reveal above */}
 
             {/* ── CONTACT ───────────────────────────────────────────────────── */}
-      <section id="contact" className="py-32 px-6">
+      <section id="contact" className="py-20 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
             Ready to turn intelligence<br />into execution?
