@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 // ── Network canvas background ──────────────────────────────────────────────
 function NetworkCanvas() {
@@ -85,6 +84,32 @@ function NetworkCanvas() {
   );
 }
 
+// ── Animated logo with pulsing center node ─────────────────────────────────
+function AnimatedLogo() {
+  return (
+    <div className="relative mx-auto mb-12 w-[280px] h-[80px]">
+      <Image
+        src="/lenryx-logo.jpg"
+        alt="LENRYX.ai"
+        width={280}
+        height={80}
+        className="object-contain"
+        priority
+      />
+      {/* Pulsing glow over the center node — positioned over the icon area */}
+      <div
+        className="absolute pointer-events-none"
+        style={{ top: "18px", left: "18px" }}
+      >
+        <span className="relative flex h-3 w-3">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60" />
+          <span className="relative inline-flex rounded-full h-3 w-3 bg-white opacity-90" />
+        </span>
+      </div>
+    </div>
+  );
+}
+
 // ── Nav ────────────────────────────────────────────────────────────────────
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -159,14 +184,7 @@ export default function Home() {
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
         <NetworkCanvas />
         <div className="relative z-10 max-w-4xl mx-auto">
-          <Image
-            src="/lenryx-logo.jpg"
-            alt="LENRYX.ai"
-            width={280}
-            height={80}
-            className="object-contain mx-auto mb-12"
-            priority
-          />
+          <AnimatedLogo />
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight mb-6">
             Where Intelligence<br />
             <span className="text-[#1B8EF8]">Becomes Execution.</span>
@@ -182,30 +200,19 @@ export default function Home() {
             Start a Conversation
           </a>
         </div>
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-30">
-          <div className="w-px h-12 bg-[#1B8EF8]" />
+        {/* Blue connecting line to next section */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <div className="w-px h-16 bg-gradient-to-b from-[#1B8EF8]/60 to-[#1B8EF8]" />
+          <div className="w-1.5 h-1.5 rounded-full bg-[#1B8EF8]" />
         </div>
       </section>
 
       {/* ── WHAT WE ARE ──────────────────────────────────────────────── */}
-      <section id="what-we-are" className="py-32 px-6">
+      <section id="what-we-are" className="pt-20 pb-32 px-6">
         <div className="max-w-6xl mx-auto">
           <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">What We Are</span>
           <div className="mt-12 grid md:grid-cols-2 gap-12 items-start">
-            {/* What we're NOT */}
-            <div className="border border-white/5 rounded-xl p-8 bg-[#0A0A0A]">
-              <p className="text-gray-500 text-xs tracking-[0.2em] uppercase mb-6">What we&apos;re not</p>
-              <ul className="space-y-4">
-                {["A consulting firm", "An AI dev shop", "A fractional team for hire", "Another framework with no follow-through"].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-gray-500">
-                    <span className="text-red-500/60 text-lg">✗</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            {/* What we ARE */}
+            {/* What we ARE — positive, first */}
             <div className="border border-[#1B8EF8]/20 rounded-xl p-8 bg-[#0A0A0A]">
               <div className="flex items-center gap-3 mb-6">
                 <NodeIcon size={28} />
@@ -223,12 +230,32 @@ export default function Home() {
                 system that converts it into output.
               </p>
             </div>
+            {/* What we're NOT — second */}
+            <div className="border border-white/5 rounded-xl p-8 bg-[#0A0A0A]">
+              <p className="text-gray-500 text-xs tracking-[0.2em] uppercase mb-6">What we&apos;re not</p>
+              <ul className="space-y-4">
+                {["A consulting firm", "An AI dev shop", "A fractional team for hire", "Another framework with no follow-through"].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-gray-500">
+                    <span className="text-red-500/60 text-lg">✗</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Section connector */}
+      <div className="flex justify-center">
+        <div className="flex flex-col items-center">
+          <div className="w-px h-12 bg-gradient-to-b from-transparent to-[#1B8EF8]/40" />
+          <div className="w-1.5 h-1.5 rounded-full bg-[#1B8EF8]/40" />
+        </div>
+      </div>
+
       {/* ── THREE PILLARS ─────────────────────────────────────────────── */}
-      <section className="py-20 px-6 bg-[#050505]">
+      <section className="pt-12 pb-20 px-6 bg-[#050505]">
         <div className="max-w-6xl mx-auto">
           <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Pillars</span>
           <h2 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-16 tracking-tight">
