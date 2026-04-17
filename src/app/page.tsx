@@ -135,7 +135,6 @@ function Nav() {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
           <a href="#what-we-are" className="hover:text-white transition-colors">What We Are</a>
-          <a href="#model" className="hover:text-white transition-colors">The Model</a>
           <a href="/team" className="hover:text-white transition-colors">The Team</a>
           <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           <a href="#contact" className="border border-[#1B8EF8] text-[#1B8EF8] px-4 py-1.5 rounded hover:bg-[#1B8EF8] hover:text-black transition-all text-sm font-medium">
@@ -159,7 +158,6 @@ function Nav() {
       {menuOpen && (
         <div className="md:hidden bg-black/95 border-t border-white/5 px-6 py-6 flex flex-col gap-5 text-sm text-gray-400">
           <a href="#what-we-are" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">What We Are</a>
-          <a href="#model" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">The Model</a>
           <a href="/team" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">The Team</a>
           <a href="#contact" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">Contact</a>
           <a href="#contact" onClick={() => setMenuOpen(false)} className="inline-block border border-[#1B8EF8] text-[#1B8EF8] px-4 py-2 rounded text-sm font-medium w-fit">
@@ -320,6 +318,31 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          {/* The Model — horizontal flow directly below pillars */}
+          <div className="mt-14 pt-10 border-t border-white/5">
+            <p className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase mb-8">The Model</p>
+            <div className="flex flex-wrap items-center gap-0">
+              {[
+                { label: "Intelligence", sub: "What you know" },
+                { label: "Strategy", sub: "What to do" },
+                { label: "Leadership", sub: "Who drives it" },
+                { label: "Systems", sub: "How it scales" },
+                { label: "Output", sub: "Measurable results" },
+              ].map((step, i) => (
+                <div key={step.label} className="flex items-center">
+                  <div className="flex flex-col items-center text-center px-4 py-2">
+                    <div className="w-9 h-9 rounded-full border border-[#1B8EF8]/50 bg-black flex items-center justify-center mb-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#1B8EF8]" />
+                    </div>
+                    <p className="text-white text-xs font-semibold whitespace-nowrap">{step.label}</p>
+                    <p className="text-gray-600 text-xs mt-0.5 whitespace-nowrap">{step.sub}</p>
+                  </div>
+                  {i < 4 && <div className="w-6 md:w-10 h-px bg-[#1B8EF8]/25 shrink-0" />}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -408,40 +431,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── THE MODEL ─────────────────────────────────────────────────── */}
-      <section id="model" className="py-20 px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Model</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-16 tracking-tight">
-            Intelligence in.<br />
-            <span className="text-[#1B8EF8]">Execution out.</span>
-          </h2>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-0">
-            {[
-              { label: "Intelligence", sub: "Your existing knowledge, data, and insight" },
-              { label: "Strategy", sub: "What to do and why" },
-              { label: "Leadership", sub: "Who drives it" },
-              { label: "Systems", sub: "How it scales" },
-              { label: "Output", sub: "Measurable results" },
-            ].map((step, i) => (
-              <div key={step.label} className="flex flex-col md:flex-row items-center">
-                <div className="flex flex-col items-center text-center w-32">
-                  <div className="w-12 h-12 rounded-full border border-[#1B8EF8]/60 bg-black flex items-center justify-center mb-2">
-                    <div className="w-2 h-2 rounded-full bg-[#1B8EF8]" />
-                  </div>
-                  <p className="text-white text-sm font-semibold">{step.label}</p>
-                  <p className="text-gray-600 text-xs mt-1 leading-snug">{step.sub}</p>
-                </div>
-                {i < 4 && (
-                  <div className="w-px h-8 md:w-8 md:h-px bg-[#1B8EF8]/25 my-2 md:my-0 md:mx-0" />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* team section replaced by pillar-driven founder reveal above */}
+      {/* model folded into pillars section above */}
 
             {/* ── CONTACT ───────────────────────────────────────────────────── */}
       <section id="contact" className="py-20 px-6">
