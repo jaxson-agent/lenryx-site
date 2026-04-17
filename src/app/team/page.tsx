@@ -70,37 +70,67 @@ export default function TeamPage() {
           {/* Header */}
           <div className="mb-20">
             <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Founders</span>
-            {/* Animated triangle — the visual story */}
+            {/* Animated triangle — spins slowly, each founder cycles through the top */}
             <div className="mb-10">
-              <svg viewBox="0 0 300 220" className="w-48 md:w-64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Triangle edges */}
-                <line x1="150" y1="20" x2="40" y2="190" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
-                <line x1="150" y1="20" x2="260" y2="190" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
-                <line x1="40" y1="190" x2="260" y2="190" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
-                {/* Vertex nodes with labels */}
-                <circle cx="150" cy="20" r="6" fill="#1B8EF8"/>
-                <circle cx="40" cy="190" r="6" fill="#1B8EF8"/>
-                <circle cx="260" cy="190" r="6" fill="#1B8EF8"/>
-                {/* Spokes to centroid */}
-                <line x1="150" y1="133" x2="150" y2="20" stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.5"/>
-                <line x1="150" y1="133" x2="40" y2="190" stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.5"/>
-                <line x1="150" y1="133" x2="260" y2="190" stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.5"/>
-                {/* Center pulse */}
-                <circle cx="150" cy="133" r="5" fill="none" stroke="#ffffff" strokeWidth="1.2">
-                  <animate attributeName="r" values="5;20;5" dur="2.5s" repeatCount="indefinite"/>
+              <svg viewBox="0 0 300 260" className="w-48 md:w-72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <style>{`
+                  @keyframes spinTriangle {
+                    from { transform: rotate(0deg); }
+                    to   { transform: rotate(360deg); }
+                  }
+                  .spinning-group {
+                    transform-origin: 150px 130px;
+                    animation: spinTriangle 24s linear infinite;
+                  }
+                  @keyframes counterSpin {
+                    from { transform: rotate(0deg); }
+                    to   { transform: rotate(-360deg); }
+                  }
+                  .label-node {
+                    transform-box: fill-box;
+                    transform-origin: center;
+                    animation: counterSpin 24s linear infinite;
+                  }
+                `}</style>
+
+                {/* Spinning group — triangle + nodes */}
+                <g className="spinning-group">
+                  {/* Edges */}
+                  <line x1="150" y1="20" x2="40" y2="200" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
+                  <line x1="150" y1="20" x2="260" y2="200" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
+                  <line x1="40"  y1="200" x2="260" y2="200" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
+                  {/* Spokes */}
+                  <line x1="150" y1="130" x2="150" y2="20"  stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.4"/>
+                  <line x1="150" y1="130" x2="40"  y2="200" stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.4"/>
+                  <line x1="150" y1="130" x2="260" y2="200" stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.4"/>
+                  {/* Vertex nodes */}
+                  <circle cx="150" cy="20"  r="7" fill="#1B8EF8"/>
+                  <circle cx="40"  cy="200" r="7" fill="#1B8EF8"/>
+                  <circle cx="260" cy="200" r="7" fill="#1B8EF8"/>
+                  {/* Labels — counter-rotate so they stay readable */}
+                  <g className="label-node" style={{transformOrigin: "150px 6px"}}>
+                    <text x="150" y="9" textAnchor="middle" fill="#9CA3AF" fontSize="11" fontFamily="Inter, sans-serif" fontWeight="500">Strategy</text>
+                  </g>
+                  <g className="label-node" style={{transformOrigin: "40px 215px"}}>
+                    <text x="40" y="218" textAnchor="middle" fill="#9CA3AF" fontSize="11" fontFamily="Inter, sans-serif" fontWeight="500">Leadership</text>
+                  </g>
+                  <g className="label-node" style={{transformOrigin: "260px 215px"}}>
+                    <text x="260" y="218" textAnchor="middle" fill="#9CA3AF" fontSize="11" fontFamily="Inter, sans-serif" fontWeight="500">Systems</text>
+                  </g>
+                </g>
+
+                {/* Center — fixed, doesn't spin */}
+                <circle cx="150" cy="130" r="5" fill="none" stroke="#ffffff" strokeWidth="1.2">
+                  <animate attributeName="r" values="5;22;5" dur="2.5s" repeatCount="indefinite"/>
                   <animate attributeName="stroke-opacity" values="0.8;0;0.8" dur="2.5s" repeatCount="indefinite"/>
                 </circle>
-                <circle cx="150" cy="133" r="5" fill="none" stroke="#1B8EF8" strokeWidth="0.8">
-                  <animate attributeName="r" values="5;20;5" dur="2.5s" begin="1.25s" repeatCount="indefinite"/>
+                <circle cx="150" cy="130" r="5" fill="none" stroke="#1B8EF8" strokeWidth="0.8">
+                  <animate attributeName="r" values="5;22;5" dur="2.5s" begin="1.25s" repeatCount="indefinite"/>
                   <animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="2.5s" begin="1.25s" repeatCount="indefinite"/>
                 </circle>
-                <circle cx="150" cy="133" r="4" fill="#ffffff">
-                  <animate attributeName="r" values="4;5.5;4" dur="2.5s" repeatCount="indefinite"/>
+                <circle cx="150" cy="130" r="4.5" fill="#ffffff">
+                  <animate attributeName="r" values="4.5;6;4.5" dur="2.5s" repeatCount="indefinite"/>
                 </circle>
-                {/* Node labels */}
-                <text x="150" y="10" textAnchor="middle" fill="#6B7280" fontSize="10" fontFamily="Inter, sans-serif">Strategy</text>
-                <text x="20" y="208" textAnchor="middle" fill="#6B7280" fontSize="10" fontFamily="Inter, sans-serif">Leadership</text>
-                <text x="280" y="208" textAnchor="middle" fill="#6B7280" fontSize="10" fontFamily="Inter, sans-serif">Systems</text>
               </svg>
             </div>
 
