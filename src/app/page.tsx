@@ -84,29 +84,35 @@ function NetworkCanvas() {
   );
 }
 
-// ── Animated logo with pulsing center node ─────────────────────────────────
-function AnimatedLogo() {
+// ── Animated node icon (hero version — large, pulsing center) ──────────────
+function AnimatedNodeIcon({ size = 80 }: { size?: number }) {
+  const r = size / 2;
+  const dist = r * 0.68;
+  const outerR = r * 0.14;
+  const centerR = r * 0.09;
+  const angles = [270, 30, 150];
+  const pts = angles.map((a) => {
+    const rad = (a * Math.PI) / 180;
+    return { x: r + dist * Math.cos(rad), y: r + dist * Math.sin(rad) };
+  });
   return (
-    <div className="relative mx-auto mb-12 w-[280px] h-[80px]">
-      <Image
-        src="/lenryx-logo.jpg"
-        alt="LENRYX.ai"
-        width={280}
-        height={80}
-        className="object-contain"
-        priority
-      />
-      {/* Pulsing glow over the center node — positioned over the icon area */}
-      <div
-        className="absolute pointer-events-none"
-        style={{ top: "18px", left: "18px" }}
-      >
-        <span className="relative flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60" />
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-white opacity-90" />
-        </span>
-      </div>
-    </div>
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none">
+      {pts.map((p, i) => (
+        <line key={i} x1={r} y1={r} x2={p.x} y2={p.y} stroke="#1B8EF8" strokeWidth="1" strokeOpacity="0.5" />
+      ))}
+      {pts.map((p, i) => (
+        <circle key={i} cx={p.x} cy={p.y} r={outerR} fill="#1B8EF8" fillOpacity="0.7" />
+      ))}
+      {/* Outer ping ring */}
+      <circle cx={r} cy={r} r={centerR * 3.5} fill="none" stroke="#ffffff" strokeWidth="0.5" strokeOpacity="0.3">
+        <animate attributeName="r" values={`${centerR * 2};${centerR * 5};${centerR * 2}`} dur="2.5s" repeatCount="indefinite" />
+        <animate attributeName="stroke-opacity" values="0.4;0;0.4" dur="2.5s" repeatCount="indefinite" />
+      </circle>
+      {/* Center node — solid white */}
+      <circle cx={r} cy={r} r={centerR} fill="#ffffff">
+        <animate attributeName="r" values={`${centerR};${centerR * 1.4};${centerR}`} dur="2.5s" repeatCount="indefinite" />
+      </circle>
+    </svg>
   );
 }
 
@@ -129,8 +135,8 @@ function Nav() {
         <Image
           src="/lenryx-logo.jpg"
           alt="LENRYX.ai"
-          width={140}
-          height={40}
+          width={150}
+          height={100}
           className="object-contain"
         />
         <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
@@ -184,7 +190,21 @@ export default function Home() {
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
         <NetworkCanvas />
         <div className="relative z-10 max-w-4xl mx-auto">
-          <AnimatedLogo />
+          {/* Logo — correct 3:2 aspect ratio (1536×1024) */}
+          <div className="mx-auto mb-6" style={{ width: 300, height: 200 }}>
+            <Image
+              src="/lenryx-logo.jpg"
+              alt="LENRYX.ai"
+              width={300}
+              height={200}
+              className="object-contain w-full h-full"
+              priority
+            />
+          </div>
+          {/* Animated node icon — echoes logo motif, pulses */}
+          <div className="flex justify-center mb-8">
+            <AnimatedNodeIcon size={72} />
+          </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight mb-6">
             Where Intelligence<br />
             <span className="text-[#1B8EF8]">Becomes Execution.</span>
@@ -475,8 +495,8 @@ export default function Home() {
           <Image
             src="/lenryx-logo.jpg"
             alt="LENRYX.ai"
-            width={100}
-            height={28}
+            width={120}
+            height={80}
             className="object-contain"
           />
           <p className="text-gray-600 text-sm">© 2026 LENRYX. All rights reserved.</p>
