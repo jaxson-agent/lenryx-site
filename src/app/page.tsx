@@ -249,10 +249,7 @@ export default function Home() {
                 Strategy without a system<br />to run it is just a document.
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                We embed inside your organization and build the operating infrastructure that converts intelligence into output.
-              </p>
-              <p className="text-gray-400 leading-relaxed mt-4">
-                That means: diagnosing where execution breaks down, building systems that scale what&apos;s working, and developing the leadership capacity to sustain it — without adding headcount or complexity.
+                LENRYX works alongside your organization to build the operating infrastructure that connects strategy to output — diagnosing where execution breaks down, designing the systems that scale what&apos;s working, and developing the leadership capacity to sustain it.
               </p>
               <p className="text-white/70 leading-relaxed mt-4 font-medium">
                 We build the system.
@@ -263,10 +260,10 @@ export default function Home() {
               <p className="text-[#1B8EF8] text-xs tracking-[0.2em] uppercase mb-6">What we are</p>
               <ul className="space-y-5">
                 {[
-                  { label: "Operators", desc: "We work inside your organization — not from a slide deck at a distance." },
-                  { label: "Architects", desc: "We design and build the systems that connect strategy to output." },
-                  { label: "A force multiplier", desc: "We amplify what already works by building the infrastructure around it." },
-                  { label: "Accountable partners", desc: "We're measured by execution — not deliverables, not frameworks, results." },
+                  { label: "Operators, not advisors", desc: "We focus on what actually moves — not on what looks good in a deck." },
+                  { label: "Systems thinkers", desc: "We connect strategy, people, and process into one working layer." },
+                  { label: "A force multiplier", desc: "AI-powered systems compress what used to take months into days, and days into hours." },
+                  { label: "Execution-focused", desc: "The goal is always output — not a deliverable, not a framework, results." },
                 ].map((item) => (
                   <li key={item.label} className="flex items-start gap-3">
                     <span className="text-[#1B8EF8] mt-0.5 shrink-0">→</span>

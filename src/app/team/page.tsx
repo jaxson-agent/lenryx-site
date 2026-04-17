@@ -79,10 +79,10 @@ export default function TeamPage() {
             </p>
             <ul className="space-y-4 max-w-xl">
               {[
-                { label: "Operators", desc: "We work inside your organization — not from a slide deck at a distance." },
-                { label: "Architects", desc: "We design and build the systems that connect strategy to output." },
-                { label: "A force multiplier", desc: "We amplify what already works by building the infrastructure around it." },
-                { label: "Accountable partners", desc: "We're measured by execution — not deliverables, not frameworks, results." },
+                { label: "Operators, not advisors", desc: "We focus on what actually moves — not on what looks good in a deck." },
+                { label: "Systems thinkers", desc: "We connect strategy, people, and process into one working layer." },
+                { label: "A force multiplier", desc: "AI-powered systems compress what used to take months into days, and days into hours." },
+                { label: "Execution-focused", desc: "The goal is always output — not a deliverable, not a framework, results." },
               ].map((item) => (
                 <li key={item.label} className="flex items-start gap-3">
                   <span className="text-[#1B8EF8] mt-0.5 shrink-0">→</span>
