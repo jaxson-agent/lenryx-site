@@ -218,8 +218,7 @@ export default function Home() {
             <span className="text-[#1B8EF8]">Becomes Execution.</span>
           </h1>
           <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
-            LENRYX is the operating layer where strategy, leadership, and AI systems converge —
-            turning intelligence into measurable output.
+            The operating system for intelligent execution — connecting strategy, leadership, and AI systems into one integrated layer that produces real, measurable outcomes.
           </p>
           <a
             href="#contact"

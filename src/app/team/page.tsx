@@ -68,11 +68,11 @@ export default function TeamPage() {
         <div className="max-w-5xl mx-auto">
 
           {/* Header */}
-          <div className="mb-20">
+          <div className="mb-20 text-center">
             <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Founders</span>
             {/* Animated triangle — spins slowly, each founder cycles through the top */}
-            <div className="mb-10">
-              <svg viewBox="0 0 300 260" className="w-48 md:w-72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div className="mb-10 flex justify-center">
+              <svg viewBox="0 0 300 260" className="w-64 md:w-96" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <style>{`
                   @keyframes spinTriangle {
                     from { transform: rotate(0deg); }
@@ -137,11 +137,13 @@ export default function TeamPage() {
             <h1 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-5 tracking-tight leading-tight">
               The triangle isn&apos;t decoration.
             </h1>
-            <p className="text-gray-400 text-lg max-w-xl leading-relaxed mb-10">
-              Each node is a founder. Each line is where two of them overlap. The center — where all three converge — is the force multiplier.<br /><br />
-              That&apos;s where LENRYX operates.
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
+              Most organizations have strategy that doesn&apos;t get implemented, leadership that isn&apos;t systemized, and technology that isn&apos;t fully leveraged. Not because the pieces are missing — because there&apos;s no unified layer connecting them.
             </p>
-            <ul className="space-y-4 max-w-xl">
+            <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed mb-10">
+              That&apos;s the problem LENRYX was built to solve. And the three people on this page are the reason it can.
+            </p>
+            <ul className="space-y-4 max-w-xl mx-auto text-left">
               {[
                 { label: "Operators, not advisors", desc: "We focus on what actually moves — not on what looks good in a deck." },
                 { label: "Systems thinkers", desc: "We connect strategy, people, and process into one working layer." },
