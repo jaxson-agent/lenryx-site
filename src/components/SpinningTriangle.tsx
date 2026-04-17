@@ -11,15 +11,19 @@ export default function SpinningTriangle({ size = 320 }: { size?: number }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    // Add padding so labels never clip at canvas edge
+    const padding = size * 0.22;
+    const total = size + padding * 2;
+
     const dpr = window.devicePixelRatio || 1;
-    canvas.width = size * dpr;
-    canvas.height = size * dpr;
-    canvas.style.width = `${size}px`;
-    canvas.style.height = `${size}px`;
+    canvas.width = total * dpr;
+    canvas.height = total * dpr;
+    canvas.style.width = `${total}px`;
+    canvas.style.height = `${total}px`;
     ctx.scale(dpr, dpr);
 
-    const cx = size / 2;
-    const cy = size / 2;
+    const cx = total / 2;
+    const cy = total / 2;
     const radius = size * 0.36;      // vertex distance from center
     const nodeR = size * 0.028;      // vertex circle radius
     const BLUE = "#1B8EF8";
@@ -34,7 +38,7 @@ export default function SpinningTriangle({ size = 320 }: { size?: number }) {
     let pulseT = 0;
 
     const draw = (now: number) => {
-      ctx.clearRect(0, 0, size, size);
+      ctx.clearRect(0, 0, total, total);
 
       // Current rotation angle
       const angle = ((now % PERIOD) / PERIOD) * Math.PI * 2;

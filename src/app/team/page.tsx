@@ -72,7 +72,7 @@ export default function TeamPage() {
           <div className="mb-20 text-center">
             {/* Canvas spinning triangle — labels always visible, always upright */}
             <div className="mb-10 flex justify-center">
-              <SpinningTriangle size={320} />
+              <SpinningTriangle size={280} />
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-5 tracking-tight leading-tight">
