@@ -317,10 +317,10 @@ export default function Home() {
             </h2>
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <p className="text-gray-400 text-lg leading-relaxed">
-                Strategies get built. AI tools get deployed. Leadership teams get trained. And still — execution stalls. The gap isn't knowledge. It&apos;s the operating layer between intelligence and output.
+                Strategies get built. Leadership teams get trained. Plans get written. And still — execution stalls. The gap isn&apos;t knowledge or intent. It&apos;s the operating layer between intelligence and output.
               </p>
               <p className="text-gray-400 text-lg leading-relaxed">
-                That layer — the connective tissue between what you know, who leads, and how the systems move — is exactly what most organizations never build. That&apos;s what LENRYX exists to solve.
+                That layer — the connective tissue between what you know, who leads, and how the work actually moves — is exactly what most organizations never build. That&apos;s what LENRYX exists to solve.
               </p>
             </div>
           </div>
