@@ -98,10 +98,10 @@ function AnimatedNodeIcon({ size = 80 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none">
       {pts.map((p, i) => (
-        <line key={i} x1={r} y1={r} x2={p.x} y2={p.y} stroke="#1B8EF8" strokeWidth="1" strokeOpacity="0.5" />
+        <line key={i} x1={r} y1={r} x2={p.x} y2={p.y} stroke="#1B8EF8" strokeWidth="1.5" strokeOpacity="1" />
       ))}
       {pts.map((p, i) => (
-        <circle key={i} cx={p.x} cy={p.y} r={outerR} fill="#1B8EF8" fillOpacity="0.7" />
+        <circle key={i} cx={p.x} cy={p.y} r={outerR} fill="#1B8EF8" fillOpacity="1" />
       ))}
       {/* Outer ping ring */}
       <circle cx={r} cy={r} r={centerR * 3.5} fill="none" stroke="#ffffff" strokeWidth="0.5" strokeOpacity="0.3">
@@ -170,10 +170,10 @@ function NodeIcon({ size = 48 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none">
       {pts.map((p, i) => (
-        <line key={i} x1={r} y1={r} x2={p.x} y2={p.y} stroke="#1B8EF8" strokeWidth="1" strokeOpacity="0.5" />
+        <line key={i} x1={r} y1={r} x2={p.x} y2={p.y} stroke="#1B8EF8" strokeWidth="1.5" strokeOpacity="1" />
       ))}
       {pts.map((p, i) => (
-        <circle key={i} cx={p.x} cy={p.y} r={outerR} fill="#1B8EF8" fillOpacity="0.7" />
+        <circle key={i} cx={p.x} cy={p.y} r={outerR} fill="#1B8EF8" fillOpacity="1" />
       ))}
       <circle cx={r} cy={r} r={centerR} fill="#ffffff" />
     </svg>
