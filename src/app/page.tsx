@@ -132,13 +132,8 @@ function Nav() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Image
-          src="/lenryx-logo.jpg"
-          alt="LENRYX.ai"
-          width={150}
-          height={100}
-          className="object-contain"
-        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/lenryx-logo.svg" alt="LENRYX.ai" style={{ height: 40, width: "auto" }} />
         <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
           <a href="#what-we-are" className="hover:text-white transition-colors">What We Are</a>
           <a href="#model" className="hover:text-white transition-colors">The Model</a>
@@ -190,34 +185,14 @@ export default function Home() {
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
         <NetworkCanvas />
         <div className="relative z-10 max-w-4xl mx-auto">
-          {/* Actual logo — with pulse animation overlaid on the center node */}
-          <div className="relative mx-auto mb-10" style={{ width: 300, height: 200 }}>
-            <Image
-              src="/lenryx-logo.jpg"
-              alt="LENRYX.ai"
-              width={300}
-              height={200}
-              className="object-contain w-full h-full"
-              priority
-            />
-            {/* Center node pulse — positioned at ~29.8% x, ~53.1% y of the image */}
-            <div
-              className="absolute pointer-events-none"
-              style={{ left: "29.8%", top: "53.1%", transform: "translate(-50%, -50%)" }}
-            >
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <circle cx="14" cy="14" r="3" fill="none" stroke="#ffffff" strokeWidth="1">
-                  <animate attributeName="r" values="3;12;3" dur="2.5s" repeatCount="indefinite" />
-                  <animate attributeName="stroke-opacity" values="0.9;0;0.9" dur="2.5s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="14" cy="14" r="3" fill="none" stroke="#1B8EF8" strokeWidth="0.8">
-                  <animate attributeName="r" values="3;12;3" dur="2.5s" begin="1.25s" repeatCount="indefinite" />
-                  <animate attributeName="stroke-opacity" values="0.7;0;0.7" dur="2.5s" begin="1.25s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="14" cy="14" r="2" fill="#ffffff" />
-              </svg>
-            </div>
-          </div>
+          {/* SVG logo — animation baked in, no overlay hack */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/lenryx-logo.svg"
+            alt="LENRYX.ai"
+            className="mx-auto mb-8"
+            style={{ width: 480, height: "auto", maxWidth: "90vw" }}
+          />
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight mb-6">
             Where Intelligence<br />
             <span className="text-[#1B8EF8]">Becomes Execution.</span>
@@ -504,13 +479,8 @@ export default function Home() {
       {/* ── FOOTER ────────────────────────────────────────────────────── */}
       <footer className="border-t border-white/5 py-8 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <Image
-            src="/lenryx-logo.jpg"
-            alt="LENRYX.ai"
-            width={120}
-            height={80}
-            className="object-contain"
-          />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/lenryx-logo.svg" alt="LENRYX.ai" style={{ height: 36, width: "auto" }} />
           <p className="text-gray-600 text-sm">© 2026 LENRYX. All rights reserved.</p>
         </div>
       </footer>
