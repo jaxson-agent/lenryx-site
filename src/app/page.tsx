@@ -358,78 +358,73 @@ export default function Home() {
           <p className="text-gray-500 text-lg mb-16 max-w-2xl">
             Each founder owns a distinct discipline. Together they cover the full stack — from intelligence to measurable output.
           </p>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                initials: "JG",
-                name: "Jason Gallen",
-                title: "Strategy & Venture Architecture",
-                location: null,
-                bio: "Multi-venture operator and strategic advisor at The Gallen Group. Jason builds and scales businesses at the intersection of brand, distribution, and digital systems — with active ventures spanning CPG, SaaS, media, and eCommerce.",
-                edge: "His edge: connecting ventures into ecosystems where partnerships, talent, and technology compound into leverage.",
-                links: [],
-              },
-              {
-                initials: "JR",
-                name: "JM Ryerson",
-                title: "Leadership & Human Performance",
-                location: "Boca Raton, FL",
-                bio: "Co-founder & CEO of Let's Go Win. JM has founded and sold three successful businesses, and now helps high-achieving professionals and organizations unlock elite performance — without burning out.",
-                edge: "Bestselling author (Let's Go Win, Champion's Daily Playbook, Upgrade), international speaker, and Leadership & Performance Coach with 20+ years mastering what it takes to build thriving teams.",
-                links: [],
-              },
-              {
-                initials: "AL",
-                name: "Andreas Lengyel",
-                title: "Systems & AI Infrastructure",
-                location: "Palo Alto, CA",
-                bio: "Purpose-driven AI enthusiast and software engineer with deep technical depth in software engineering, fintech, and startup infrastructure.",
-                edge: "The systems architect who turns strategy into scalable, intelligent execution.",
-                links: [
-                  { label: "LinkedIn", href: "https://linkedin.com/in/andreaslengyels" },
-                  { label: "GitHub", href: "https://github.com/AndreasL" },
-                ],
-              },
-            ].map((m) => (
-              <div
-                key={m.name}
-                className="group bg-[#111111] rounded-xl border border-white/5 hover:border-[#1B8EF8]/25 transition-all duration-300 overflow-hidden flex flex-col"
-              >
+          {/* Triangle layout — top center, bottom two. No rank implied. */}
+          <div className="flex flex-col gap-6">
+            {/* Top card — centered */}
+            <div className="flex justify-center">
+              <div className="w-full md:w-[calc(33.333%-8px)] bg-[#111111] rounded-xl border border-white/5 hover:border-[#1B8EF8]/25 transition-all duration-300 overflow-hidden flex flex-col group">
                 <div className="h-0.5 bg-[#1B8EF8]" />
                 <div className="p-8 flex flex-col flex-1">
                   <div className="flex items-start justify-between mb-6">
                     <div className="w-14 h-14 rounded-full border border-[#1B8EF8]/50 flex items-center justify-center bg-black">
-                      <span className="text-[#1B8EF8] font-bold text-sm tracking-widest">{m.initials}</span>
+                      <span className="text-[#1B8EF8] font-bold text-sm tracking-widest">JR</span>
                     </div>
-                    <div className="opacity-20 group-hover:opacity-40 transition-opacity">
-                      <NodeIcon size={32} />
-                    </div>
+                    <div className="opacity-20 group-hover:opacity-40 transition-opacity"><NodeIcon size={32} /></div>
                   </div>
-                  <h3 className="text-white font-bold text-lg mb-1">{m.name}</h3>
-                  <p className="text-[#1B8EF8] text-xs font-medium tracking-[0.12em] uppercase mb-1">{m.title}</p>
-                  {m.location && <p className="text-gray-600 text-xs mb-5">{m.location}</p>}
-                  {!m.location && <div className="mb-5" />}
+                  <h3 className="text-white font-bold text-lg mb-1">JM Ryerson</h3>
+                  <p className="text-[#1B8EF8] text-xs font-medium tracking-[0.12em] uppercase mb-1">Leadership & Human Performance</p>
+                  <p className="text-gray-600 text-xs mb-5">Boca Raton, FL</p>
                   <div className="h-px bg-white/5 mb-5" />
-                  <p className="text-gray-400 text-sm leading-relaxed mb-3 flex-1">{m.bio}</p>
-                  <p className="text-white/50 text-xs leading-relaxed italic">{m.edge}</p>
-                  {m.links.length > 0 && (
-                    <div className="flex gap-4 mt-5 pt-5 border-t border-white/5">
-                      {m.links.map((l) => (
-                        <a
-                          key={l.label}
-                          href={l.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs text-[#1B8EF8]/60 hover:text-[#1B8EF8] transition-colors"
-                        >
-                          {l.label} ↗
-                        </a>
-                      ))}
-                    </div>
-                  )}
+                  <p className="text-gray-400 text-sm leading-relaxed mb-3 flex-1">Co-founder & CEO of Let&apos;s Go Win. JM has founded and sold three successful businesses, and now helps high-achieving professionals and organizations unlock elite performance — without burning out.</p>
+                  <p className="text-white/50 text-xs leading-relaxed italic">Bestselling author (Let&apos;s Go Win, Champion&apos;s Daily Playbook, Upgrade), international speaker, and Leadership & Performance Coach with 20+ years mastering what it takes to build thriving teams.</p>
                 </div>
               </div>
-            ))}
+            </div>
+            {/* Bottom two — side by side */}
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                {
+                  initials: "JG", name: "Jason Gallen", title: "Strategy & Venture Architecture", location: null,
+                  bio: "Multi-venture operator and strategic advisor at The Gallen Group. Jason builds and scales businesses at the intersection of brand, distribution, and digital systems — with active ventures spanning CPG, SaaS, media, and eCommerce.",
+                  edge: "His edge: connecting ventures into ecosystems where partnerships, talent, and technology compound into leverage.",
+                  links: [] as {label:string;href:string}[],
+                },
+                {
+                  initials: "AL", name: "Andreas Lengyel", title: "Systems & AI Infrastructure", location: "Palo Alto, CA",
+                  bio: "Purpose-driven AI enthusiast and software engineer with deep technical depth in software engineering, fintech, and startup infrastructure.",
+                  edge: "The systems architect who turns strategy into scalable, intelligent execution.",
+                  links: [{ label: "LinkedIn", href: "https://linkedin.com/in/andreaslengyels" }, { label: "GitHub", href: "https://github.com/AndreasL" }],
+                },
+              ].map((m) => (
+                <div key={m.name} className="group bg-[#111111] rounded-xl border border-white/5 hover:border-[#1B8EF8]/25 transition-all duration-300 overflow-hidden flex flex-col">
+                  <div className="h-0.5 bg-[#1B8EF8]" />
+                  <div className="p-8 flex flex-col flex-1">
+                    <div className="flex items-start justify-between mb-6">
+                      <div className="w-14 h-14 rounded-full border border-[#1B8EF8]/50 flex items-center justify-center bg-black">
+                        <span className="text-[#1B8EF8] font-bold text-sm tracking-widest">{m.initials}</span>
+                      </div>
+                      <div className="opacity-20 group-hover:opacity-40 transition-opacity"><NodeIcon size={32} /></div>
+                    </div>
+                    <h3 className="text-white font-bold text-lg mb-1">{m.name}</h3>
+                    <p className="text-[#1B8EF8] text-xs font-medium tracking-[0.12em] uppercase mb-1">{m.title}</p>
+                    {m.location ? <p className="text-gray-600 text-xs mb-5">{m.location}</p> : <div className="mb-5" />}
+                    <div className="h-px bg-white/5 mb-5" />
+                    <p className="text-gray-400 text-sm leading-relaxed mb-3 flex-1">{m.bio}</p>
+                    <p className="text-white/50 text-xs leading-relaxed italic">{m.edge}</p>
+                    {m.links.length > 0 && (
+                      <div className="flex gap-4 mt-5 pt-5 border-t border-white/5">
+                        {m.links.map((l) => (
+                          <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
+                            className="text-xs text-[#1B8EF8]/60 hover:text-[#1B8EF8] transition-colors">
+                            {l.label} ↗
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
