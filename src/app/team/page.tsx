@@ -71,11 +71,11 @@ export default function TeamPage() {
           <div className="mb-20">
             <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Founders</span>
             <h1 className="text-4xl md:text-6xl font-bold text-white mt-4 mb-6 tracking-tight leading-tight">
-              Built at the intersection.
+              Three founders.<br />
+              <span className="text-gray-500 font-normal">One operating layer.</span>
             </h1>
-            <p className="text-gray-500 text-lg mb-2">Where strategy meets systems meets the people who make it move.</p>
-            <p className="text-gray-400 text-lg max-w-2xl leading-relaxed mb-10">
-              LENRYX was built by three people who operate at the highest level of their discipline — and whose thinking compounds when combined. Strategy without leadership stalls. Leadership without systems doesn&apos;t scale. Systems without strategy builds the wrong thing. Together, they close the loop.
+            <p className="text-gray-400 text-xl max-w-2xl leading-relaxed mb-10">
+              Jason, JM, and Andreas each bring a discipline that the others can&apos;t replicate — and together they cover every dimension of execution. Strategy sets the direction. Leadership drives the people. Systems make it scale. LENRYX is what happens when all three move together.
             </p>
             <ul className="space-y-4 max-w-xl">
               {[

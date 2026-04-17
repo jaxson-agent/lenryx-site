@@ -238,8 +238,7 @@ export default function Home() {
       {/* ── WHAT WE ARE ──────────────────────────────────────────────── */}
       <section id="what-we-are" className="pt-16 pb-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">What We Are</span>
-          <div className="mt-12 grid md:grid-cols-2 gap-12 items-start">
+          <div className="mt-6 grid md:grid-cols-2 gap-12 items-start">
             {/* What we DO */}
             <div className="border border-[#1B8EF8]/20 rounded-xl p-8 bg-[#0A0A0A]">
               <div className="flex items-center gap-3 mb-6">
