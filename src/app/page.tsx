@@ -258,25 +258,19 @@ export default function Home() {
                 We build the system.
               </p>
             </div>
-            {/* What we're NOT — with contrast */}
+            {/* What we are */}
             <div className="border border-white/5 rounded-xl p-8 bg-[#0A0A0A]">
-              <p className="text-gray-500 text-xs tracking-[0.2em] uppercase mb-6">What we&apos;re not</p>
+              <p className="text-[#1B8EF8] text-xs tracking-[0.2em] uppercase mb-6">What we are</p>
               <ul className="space-y-5">
                 {[
-                  { not: "A consulting firm that hands you a deck", is: "Operators who build the actual system" },
-                  { not: "An AI dev shop that builds features", is: "Architects who connect AI to business outcomes" },
-                  { not: "A fractional team you have to manage", is: "A layer that runs and delivers" },
-                  { not: "Another framework with no follow-through", is: "Execution until it works" },
+                  { label: "Operators", desc: "We work inside your organization — not from a slide deck at a distance." },
+                  { label: "Architects", desc: "We design and build the systems that connect strategy to output." },
+                  { label: "A force multiplier", desc: "We amplify what already works by building the infrastructure around it." },
+                  { label: "Accountable partners", desc: "We're measured by execution — not deliverables, not frameworks, results." },
                 ].map((item) => (
-                  <li key={item.not} className="flex flex-col gap-1">
-                    <span className="flex items-start gap-2 text-gray-600 text-sm">
-                      <span className="text-red-500/50 mt-0.5 shrink-0">✗</span>
-                      <span>{item.not}</span>
-                    </span>
-                    <span className="flex items-start gap-2 text-gray-300 text-sm">
-                      <span className="text-[#1B8EF8] mt-0.5 shrink-0">✓</span>
-                      <span>{item.is}</span>
-                    </span>
+                  <li key={item.label} className="flex flex-col gap-1">
+                    <span className="text-white text-sm font-medium">{item.label}</span>
+                    <span className="text-gray-500 text-sm leading-relaxed">{item.desc}</span>
                   </li>
                 ))}
               </ul>
