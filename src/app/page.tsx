@@ -175,6 +175,127 @@ function NodeIcon({ size = 48 }: { size?: number }) {
   );
 }
 
+// ── Pillars + interactive founder reveal ───────────────────────────────────
+const pillars = [
+  {
+    num: "01",
+    title: "Strategy",
+    subtitle: "What to do.",
+    body: "We diagnose where you are, define where you're going, and map the path. No generic frameworks — precision decisions built on your actual situation.",
+    founder: {
+      initials: "JG",
+      name: "Jason Gallen",
+      title: "Strategy & Venture Architecture",
+      bio: "Multi-venture operator and strategic advisor at The Gallen Group. Jason builds and scales businesses at the intersection of brand, distribution, and digital systems — with active ventures spanning CPG, SaaS, media, and eCommerce.",
+      edge: "His edge: connecting ventures into ecosystems where partnerships, talent, and technology compound into leverage.",
+      links: [] as {label:string;href:string}[],
+    },
+  },
+  {
+    num: "02",
+    title: "Leadership",
+    subtitle: "Who drives it.",
+    body: "Human performance, team alignment, and the conviction to execute. The best strategy fails without the right people driving it.",
+    founder: {
+      initials: "JR",
+      name: "JM Ryerson",
+      title: "Leadership & Human Performance",
+      bio: "Co-founder & CEO of Let's Go Win. JM has founded and sold three successful businesses, and now helps high-achieving professionals and organizations unlock elite performance — without burning out.",
+      edge: "Bestselling author (Let's Go Win, Champion's Daily Playbook, Upgrade), international speaker, and Leadership & Performance Coach with 20+ years mastering what it takes to build thriving teams.",
+      links: [],
+    },
+  },
+  {
+    num: "03",
+    title: "Systems + AI",
+    subtitle: "How it gets done.",
+    body: "Intelligent systems that scale execution without scaling headcount. The infrastructure that makes strategy repeatable and output measurable.",
+    founder: {
+      initials: "AL",
+      name: "Andreas Lengyel",
+      title: "Systems & AI Infrastructure",
+      bio: "Purpose-driven AI enthusiast and software engineer with deep technical depth in software engineering, fintech, and startup infrastructure.",
+      edge: "The systems architect who turns strategy into scalable, intelligent execution.",
+      links: [{ label: "LinkedIn", href: "https://linkedin.com/in/andreaslengyels" }, { label: "GitHub", href: "https://github.com/AndreasL" }],
+    },
+  },
+];
+
+function PillarsWithFounders() {
+  const [active, setActive] = useState<number | null>(null);
+  const founder = active !== null ? pillars[active].founder : null;
+
+  return (
+    <section className="pt-12 pb-20 px-6 bg-[#050505]">
+      <div className="max-w-6xl mx-auto">
+        <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Pillars</span>
+        <h2 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-4 tracking-tight">
+          Three disciplines.<br />
+          <span className="text-gray-500 font-normal">One integrated system.</span>
+        </h2>
+        <p className="text-gray-600 text-sm mb-12">Select a pillar to meet the founder who leads it.</p>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          {pillars.map((p, i) => (
+            <button
+              key={p.num}
+              onClick={() => setActive(active === i ? null : i)}
+              className={`text-left group rounded-xl border transition-all duration-300 overflow-hidden focus:outline-none ${
+                active === i
+                  ? "border-[#1B8EF8] bg-[#0D1F35]"
+                  : "border-white/5 bg-[#111111] hover:border-[#1B8EF8]/40"
+              }`}
+            >
+              <div className={`h-0.5 transition-colors duration-300 ${active === i ? "bg-[#1B8EF8]" : "bg-[#1B8EF8]/40 group-hover:bg-[#1B8EF8]"}`} />
+              <div className="p-8">
+                <span className="text-[#1B8EF8]/40 text-xs font-mono tracking-widest">{p.num}</span>
+                <h3 className="text-white font-bold text-xl mt-3 mb-1">{p.title}</h3>
+                <p className="text-[#1B8EF8] text-sm mb-4">{p.subtitle}</p>
+                <p className="text-gray-500 text-sm leading-relaxed mb-6">{p.body}</p>
+                <span className={`text-xs tracking-wide transition-colors duration-200 ${active === i ? "text-[#1B8EF8]" : "text-gray-600 group-hover:text-[#1B8EF8]/70"}`}>
+                  {active === i ? "Hide founder ↑" : "Meet the founder →"}
+                </span>
+              </div>
+            </button>
+          ))}
+        </div>
+
+        {/* Founder reveal panel */}
+        {founder && (
+          <div className="rounded-xl border border-[#1B8EF8]/25 bg-[#0A0A0A] overflow-hidden">
+            <div className="h-0.5 bg-[#1B8EF8]" />
+            <div className="p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start">
+              {/* Avatar */}
+              <div className="shrink-0">
+                <div className="w-16 h-16 rounded-full border border-[#1B8EF8]/50 flex items-center justify-center bg-black">
+                  <span className="text-[#1B8EF8] font-bold tracking-widest">{founder.initials}</span>
+                </div>
+              </div>
+              {/* Bio */}
+              <div className="flex-1">
+                <h3 className="text-white font-bold text-xl mb-1">{founder.name}</h3>
+                <p className="text-[#1B8EF8] text-xs font-medium tracking-[0.15em] uppercase mb-5">{founder.title}</p>
+                <p className="text-gray-400 text-sm leading-relaxed mb-3">{founder.bio}</p>
+                <p className="text-white/50 text-xs leading-relaxed italic">{founder.edge}</p>
+                {founder.links.length > 0 && (
+                  <div className="flex gap-4 mt-5">
+                    {founder.links.map((l) => (
+                      <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
+                        className="text-xs text-[#1B8EF8]/60 hover:text-[#1B8EF8] transition-colors">
+                        {l.label} ↗
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 // ── Main page ──────────────────────────────────────────────────────────────
 export default function Home() {
   return (
@@ -273,51 +394,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── THREE PILLARS ─────────────────────────────────────────────── */}
-      <section className="pt-12 pb-20 px-6 bg-[#050505]">
-        <div className="max-w-6xl mx-auto">
-          <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Pillars</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-16 tracking-tight">
-            Three disciplines.<br />
-            <span className="text-gray-500 font-normal">One integrated system.</span>
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                num: "01",
-                title: "Strategy",
-                subtitle: "What to do.",
-                body: "We diagnose where you are, define where you're going, and map the path. No generic frameworks — precision decisions built on your actual situation.",
-              },
-              {
-                num: "02",
-                title: "Leadership",
-                subtitle: "Who drives it.",
-                body: "Human performance, team alignment, and the conviction to execute. The best strategy fails without the right people driving it.",
-              },
-              {
-                num: "03",
-                title: "Systems + AI",
-                subtitle: "How it gets done.",
-                body: "Intelligent systems that scale execution without scaling headcount. The infrastructure that makes strategy repeatable and output measurable.",
-              },
-            ].map((p) => (
-              <div
-                key={p.num}
-                className="group bg-[#111111] rounded-xl border border-white/5 hover:border-[#1B8EF8]/30 transition-all duration-300 overflow-hidden"
-              >
-                <div className="h-0.5 bg-[#1B8EF8]" />
-                <div className="p-8">
-                  <span className="text-[#1B8EF8]/40 text-xs font-mono tracking-widest">{p.num}</span>
-                  <h3 className="text-white font-bold text-xl mt-3 mb-1">{p.title}</h3>
-                  <p className="text-[#1B8EF8] text-sm mb-4">{p.subtitle}</p>
-                  <p className="text-gray-500 text-sm leading-relaxed">{p.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── THREE PILLARS + FOUNDER REVEAL ───────────────────────────── */}
+      <PillarsWithFounders />
 
       {/* ── THE MODEL ─────────────────────────────────────────────────── */}
       <section id="model" className="py-32 px-6">
@@ -352,93 +430,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TEAM ──────────────────────────────────────────────────────── */}
-      <section id="team" className="py-32 px-6 bg-[#050505]">
-        <div className="max-w-6xl mx-auto">
-          <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Team</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mt-3 mb-4 tracking-tight">
-            Three pillars.{" "}
-            <span className="text-gray-500 font-normal">One operating layer.</span>
-          </h2>
-          <p className="text-gray-500 text-lg mb-16 max-w-2xl">
-            Each founder owns a distinct discipline. Together they cover the full stack — from intelligence to measurable output.
-          </p>
-          {/* Radial node diagram — logo motif, three equal founders */}
-          <div className="relative mb-16 flex justify-center">
-            <svg
-              viewBox="0 0 500 180"
-              className="w-full max-w-lg"
-              fill="none"
-            >
-              {/* Connecting lines between the three nodes */}
-              <line x1="250" y1="40" x2="60" y2="150" stroke="#1B8EF8" strokeWidth="1" strokeOpacity="0.35" />
-              <line x1="250" y1="40" x2="440" y2="150" stroke="#1B8EF8" strokeWidth="1" strokeOpacity="0.35" />
-              <line x1="60" y1="150" x2="440" y2="150" stroke="#1B8EF8" strokeWidth="1" strokeOpacity="0.35" />
-              {/* Top node */}
-              <circle cx="250" cy="40" r="6" fill="#1B8EF8" />
-              {/* Bottom-left node */}
-              <circle cx="60" cy="150" r="6" fill="#1B8EF8" />
-              {/* Bottom-right node */}
-              <circle cx="440" cy="150" r="6" fill="#1B8EF8" />
-              {/* Center intersection dot */}
-              <circle cx="250" cy="113" r="3.5" fill="#ffffff">
-                <animate attributeName="r" values="3.5;5;3.5" dur="3s" repeatCount="indefinite" />
-                <animate attributeName="fill-opacity" values="0.9;0.5;0.9" dur="3s" repeatCount="indefinite" />
-              </circle>
-            </svg>
-          </div>
+      {/* team section replaced by pillar-driven founder reveal above */}
 
-          {/* Three equal cards — grid, no visual hierarchy */}
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                initials: "JG", name: "Jason Gallen", title: "Strategy & Venture Architecture",
-                bio: "Multi-venture operator and strategic advisor at The Gallen Group. Builds and scales businesses at the intersection of brand, distribution, and digital systems — spanning CPG, SaaS, media, and eCommerce.",
-                edge: "Connecting ventures into ecosystems where partnerships, talent, and technology compound into leverage.",
-                links: [] as {label:string;href:string}[],
-              },
-              {
-                initials: "JR", name: "JM Ryerson", title: "Leadership & Human Performance",
-                bio: "Co-founder & CEO of Let's Go Win. Founded and sold three successful businesses. Helps high-achieving professionals unlock elite performance — without burning out.",
-                edge: "Bestselling author, international speaker, and Leadership & Performance Coach with 20+ years mastering what it takes to build thriving teams.",
-                links: [],
-              },
-              {
-                initials: "AL", name: "Andreas Lengyel", title: "Systems & AI Infrastructure",
-                bio: "Purpose-driven AI enthusiast and software engineer with deep depth in software engineering, fintech, and startup infrastructure.",
-                edge: "The systems architect who turns strategy into scalable, intelligent execution.",
-                links: [{ label: "LinkedIn", href: "https://linkedin.com/in/andreaslengyels" }, { label: "GitHub", href: "https://github.com/AndreasL" }],
-              },
-            ].map((m) => (
-              <div key={m.name} className="group bg-[#111111] rounded-xl border border-white/5 hover:border-[#1B8EF8]/25 transition-all duration-300 overflow-hidden flex flex-col">
-                <div className="h-0.5 bg-[#1B8EF8]" />
-                <div className="p-8 flex flex-col flex-1">
-                  <div className="w-14 h-14 rounded-full border border-[#1B8EF8]/50 flex items-center justify-center bg-black mb-6">
-                    <span className="text-[#1B8EF8] font-bold text-sm tracking-widest">{m.initials}</span>
-                  </div>
-                  <h3 className="text-white font-bold text-lg mb-1">{m.name}</h3>
-                  <p className="text-[#1B8EF8] text-xs font-medium tracking-[0.12em] uppercase mb-5">{m.title}</p>
-                  <div className="h-px bg-white/5 mb-5" />
-                  <p className="text-gray-400 text-sm leading-relaxed mb-3 flex-1">{m.bio}</p>
-                  <p className="text-white/50 text-xs leading-relaxed italic">{m.edge}</p>
-                  {m.links.length > 0 && (
-                    <div className="flex gap-4 mt-5 pt-5 border-t border-white/5">
-                      {m.links.map((l) => (
-                        <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
-                          className="text-xs text-[#1B8EF8]/60 hover:text-[#1B8EF8] transition-colors">
-                          {l.label} ↗
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── CONTACT ───────────────────────────────────────────────────── */}
+            {/* ── CONTACT ───────────────────────────────────────────────────── */}
       <section id="contact" className="py-32 px-6">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
