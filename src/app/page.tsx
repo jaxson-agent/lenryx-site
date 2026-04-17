@@ -119,6 +119,7 @@ function AnimatedNodeIcon({ size = 80 }: { size?: number }) {
 // ── Nav ────────────────────────────────────────────────────────────────────
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handler);
@@ -126,28 +127,46 @@ function Nav() {
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/90 backdrop-blur-md border-b border-white/5" : ""
-      }`}
-    >
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || menuOpen ? "bg-black/95 backdrop-blur-md border-b border-white/5" : ""}`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/lenryx-logo-v2.svg" alt="LENRYX.ai" style={{ height: 40, width: "auto" }} />
+
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
           <a href="#what-we-are" className="hover:text-white transition-colors">What We Are</a>
           <a href="#model" className="hover:text-white transition-colors">The Model</a>
-          <a href="#team" className="hover:text-white transition-colors">Team</a>
+          <a href="/team" className="hover:text-white transition-colors">The Team</a>
           <a href="#contact" className="hover:text-white transition-colors">Contact</a>
-          <a href="/team" className="hover:text-white transition-colors">Team</a>
-          <a
-            href="#contact"
-            className="border border-[#1B8EF8] text-[#1B8EF8] px-4 py-1.5 rounded hover:bg-[#1B8EF8] hover:text-black transition-all text-sm font-medium"
-          >
+          <a href="#contact" className="border border-[#1B8EF8] text-[#1B8EF8] px-4 py-1.5 rounded hover:bg-[#1B8EF8] hover:text-black transition-all text-sm font-medium">
             Let&apos;s Talk
           </a>
         </div>
+
+        {/* Mobile hamburger */}
+        <button
+          className="md:hidden flex flex-col gap-1.5 p-2"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Menu"
+        >
+          <span className={`block w-5 h-px bg-white transition-all duration-200 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+          <span className={`block w-5 h-px bg-white transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-5 h-px bg-white transition-all duration-200 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+        </button>
       </div>
+
+      {/* Mobile menu */}
+      {menuOpen && (
+        <div className="md:hidden bg-black/95 border-t border-white/5 px-6 py-6 flex flex-col gap-5 text-sm text-gray-400">
+          <a href="#what-we-are" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">What We Are</a>
+          <a href="#model" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">The Model</a>
+          <a href="/team" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">The Team</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)} className="hover:text-white transition-colors">Contact</a>
+          <a href="#contact" onClick={() => setMenuOpen(false)} className="inline-block border border-[#1B8EF8] text-[#1B8EF8] px-4 py-2 rounded text-sm font-medium w-fit">
+            Let&apos;s Talk
+          </a>
+        </div>
+      )}
     </nav>
   );
 }

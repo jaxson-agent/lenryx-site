@@ -8,15 +8,18 @@ export const metadata: Metadata = {
 
 const team = [
   {
-    initials: "JG",
-    name: "Jason Gallen",
-    title: "Strategy & Venture Architecture",
-    pillar: "Strategy",
-    location: null,
-    bio: "Multi-venture operator and strategic advisor at The Gallen Group. Jason builds and scales businesses at the intersection of brand, distribution, and digital systems — with active ventures spanning CPG, SaaS, media, and eCommerce.",
-    extended: "Jason's edge is connecting ventures into ecosystems where partnerships, talent, and technology compound into leverage. He operates across multiple layers simultaneously — strategy, deal-making, brand direction, growth planning, and execution oversight — bringing the same rigor to every engagement LENRYX takes on.",
-    edge: "Connecting ventures into ecosystems where partnerships, talent, and technology compound into leverage.",
-    links: [] as { label: string; href: string }[],
+    initials: "AL",
+    name: "Andreas Lengyel",
+    title: "Systems & AI Infrastructure",
+    pillar: "Systems + AI",
+    location: "Palo Alto, CA",
+    bio: "Purpose-driven AI enthusiast and software engineer with deep technical depth in software engineering, fintech, and startup infrastructure.",
+    extended: "Andreas is the systems architect who translates strategy and leadership direction into scalable, intelligent infrastructure. His background spans fintech, startup engineering, and AI-native systems — giving LENRYX the technical credibility to build operating layers that actually run at scale.",
+    edge: "The systems architect who turns strategy into scalable, intelligent execution.",
+    links: [
+      { label: "LinkedIn", href: "https://linkedin.com/in/andreaslengyels" },
+      { label: "GitHub", href: "https://github.com/AndreasL" },
+    ] as { label: string; href: string }[],
   },
   {
     initials: "JR",
@@ -30,18 +33,15 @@ const team = [
     links: [],
   },
   {
-    initials: "AL",
-    name: "Andreas Lengyel",
-    title: "Systems & AI Infrastructure",
-    pillar: "Systems + AI",
-    location: "Palo Alto, CA",
-    bio: "Purpose-driven AI enthusiast and software engineer with deep technical depth in software engineering, fintech, and startup infrastructure.",
-    extended: "Andreas is the systems architect who translates strategy and leadership direction into scalable, intelligent infrastructure. His background spans fintech, startup engineering, and AI-native systems — giving LENRYX the technical credibility to build operating layers that actually run at scale.",
-    edge: "The systems architect who turns strategy into scalable, intelligent execution.",
-    links: [
-      { label: "LinkedIn", href: "https://linkedin.com/in/andreaslengyels" },
-      { label: "GitHub", href: "https://github.com/AndreasL" },
-    ],
+    initials: "JG",
+    name: "Jason Gallen",
+    title: "Strategy & Venture Architecture",
+    pillar: "Strategy",
+    location: null,
+    bio: "Multi-venture operator and strategic advisor at The Gallen Group. Jason builds and scales businesses at the intersection of brand, distribution, and digital systems — with active ventures spanning CPG, SaaS, media, and eCommerce.",
+    extended: "Jason's edge is connecting ventures into ecosystems where partnerships, talent, and technology compound into leverage. He operates across multiple layers simultaneously — strategy, deal-making, brand direction, growth planning, and execution oversight — bringing the same rigor to every engagement LENRYX takes on.",
+    edge: "Connecting ventures into ecosystems where partnerships, talent, and technology compound into leverage.",
+    links: [],
   },
 ];
 
