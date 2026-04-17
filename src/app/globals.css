@@ -19,3 +19,20 @@ body {
   background: #1B8EF8;
   color: #000;
 }
+
+/* Thin blue scrollbar for horizontal scroll indicators */
+.scrollbar-thin-blue {
+  scrollbar-width: thin;
+  scrollbar-color: #1B8EF8 rgba(255,255,255,0.05);
+}
+.scrollbar-thin-blue::-webkit-scrollbar {
+  height: 3px;
+}
+.scrollbar-thin-blue::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+  border-radius: 2px;
+}
+.scrollbar-thin-blue::-webkit-scrollbar-thumb {
+  background: #1B8EF8;
+  border-radius: 2px;
+}

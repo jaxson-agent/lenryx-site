@@ -319,7 +319,7 @@ export default function Home() {
           {/* The Model — horizontally scrollable strip */}
           <div className="mt-14 pt-10 border-t border-white/5">
             <p className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase mb-8">The Model</p>
-            <div className="overflow-x-auto pb-2 -mx-2 px-2">
+            <div className="overflow-x-auto pb-3 -mx-2 px-2 scrollbar-thin-blue">
               <div className="flex items-center min-w-max">
                 {[
                   { label: "Intelligence", sub: "What you know" },
