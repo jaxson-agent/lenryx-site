@@ -223,7 +223,6 @@ export default function Home() {
             {/* What we DO */}
             <div className="border border-[#1B8EF8]/20 rounded-xl p-8 bg-[#0A0A0A]">
               <div className="flex items-center gap-3 mb-6">
-                <NodeIcon size={28} />
                 <p className="text-[#1B8EF8] text-xs tracking-[0.2em] uppercase">What we do</p>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">
@@ -442,8 +441,7 @@ export default function Home() {
       {/* ── CONTACT ───────────────────────────────────────────────────── */}
       <section id="contact" className="py-32 px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <NodeIcon size={48} />
-          <h2 className="text-3xl md:text-5xl font-bold text-white mt-8 mb-4 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight">
             Ready to turn intelligence<br />into execution?
           </h2>
           <p className="text-gray-400 text-lg mb-12">
