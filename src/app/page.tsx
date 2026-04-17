@@ -220,32 +220,44 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">What We Are</span>
           <div className="mt-12 grid md:grid-cols-2 gap-12 items-start">
-            {/* What we ARE — positive, first */}
+            {/* What we DO */}
             <div className="border border-[#1B8EF8]/20 rounded-xl p-8 bg-[#0A0A0A]">
               <div className="flex items-center gap-3 mb-6">
                 <NodeIcon size={28} />
-                <p className="text-[#1B8EF8] text-xs tracking-[0.2em] uppercase">What we are</p>
+                <p className="text-[#1B8EF8] text-xs tracking-[0.2em] uppercase">What we do</p>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">
-                An operating layer.
+                We build the machine.<br />Then we make sure it runs.
               </h2>
               <p className="text-gray-400 leading-relaxed">
-                We sit at the intersection of strategy, leadership, and AI systems — and we turn
-                that intersection into execution. Not advice. Not roadmaps. Results.
+                We embed inside your organization and build the operating infrastructure that converts intelligence into output.
               </p>
               <p className="text-gray-400 leading-relaxed mt-4">
-                LENRYX engages at the level where intelligence already exists — and builds the
-                system that converts it into output.
+                That means: diagnosing where execution breaks down, building AI-powered systems that scale what&apos;s working, and developing the leadership capacity to sustain it — without adding headcount or complexity.
+              </p>
+              <p className="text-white/70 leading-relaxed mt-4 font-medium">
+                We don&apos;t advise and leave. We build the machine. Then we make sure it runs.
               </p>
             </div>
-            {/* What we're NOT — second */}
+            {/* What we're NOT — with contrast */}
             <div className="border border-white/5 rounded-xl p-8 bg-[#0A0A0A]">
               <p className="text-gray-500 text-xs tracking-[0.2em] uppercase mb-6">What we&apos;re not</p>
-              <ul className="space-y-4">
-                {["A consulting firm", "An AI dev shop", "A fractional team for hire", "Another framework with no follow-through"].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-gray-500">
-                    <span className="text-red-500/60 text-lg">✗</span>
-                    <span>{item}</span>
+              <ul className="space-y-5">
+                {[
+                  { not: "A consulting firm that hands you a deck", is: "Operators who build the actual system" },
+                  { not: "An AI dev shop that builds features", is: "Architects who connect AI to business outcomes" },
+                  { not: "A fractional team you have to manage", is: "A layer that runs and delivers" },
+                  { not: "Another framework with no follow-through", is: "Execution until it works" },
+                ].map((item) => (
+                  <li key={item.not} className="flex flex-col gap-1">
+                    <span className="flex items-start gap-2 text-gray-600 text-sm">
+                      <span className="text-red-500/50 mt-0.5 shrink-0">✗</span>
+                      <span>{item.not}</span>
+                    </span>
+                    <span className="flex items-start gap-2 text-gray-300 text-sm">
+                      <span className="text-[#1B8EF8] mt-0.5 shrink-0">✓</span>
+                      <span>{item.is}</span>
+                    </span>
                   </li>
                 ))}
               </ul>
