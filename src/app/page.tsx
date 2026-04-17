@@ -313,7 +313,7 @@ export default function Home() {
             <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Gap</span>
             <h2 className="text-3xl md:text-5xl font-bold text-white mt-4 mb-8 tracking-tight leading-tight">
               Most organizations have<br className="hidden md:block" /> the intelligence.<br />
-              <span className="text-gray-500 font-normal">Almost none have the infrastructure<br className="hidden md:block" /> to convert it.</span>
+              <span className="text-gray-500 font-normal">The missing piece is the infrastructure<br className="hidden md:block" /> to convert it into output.</span>
             </h2>
             <div className="grid md:grid-cols-2 gap-12 items-start">
               <p className="text-gray-400 text-lg leading-relaxed">
