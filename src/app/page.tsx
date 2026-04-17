@@ -248,16 +248,16 @@ export default function Home() {
                 <p className="text-[#1B8EF8] text-xs tracking-[0.2em] uppercase">What we do</p>
               </div>
               <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 leading-snug">
-                We build the machine.<br />Then we make sure it runs.
+                Strategy without a system<br />to run it is just a document.
               </h2>
               <p className="text-gray-400 leading-relaxed">
                 We embed inside your organization and build the operating infrastructure that converts intelligence into output.
               </p>
               <p className="text-gray-400 leading-relaxed mt-4">
-                That means: diagnosing where execution breaks down, building AI-powered systems that scale what&apos;s working, and developing the leadership capacity to sustain it — without adding headcount or complexity.
+                That means: diagnosing where execution breaks down, building systems that scale what&apos;s working, and developing the leadership capacity to sustain it — without adding headcount or complexity.
               </p>
               <p className="text-white/70 leading-relaxed mt-4 font-medium">
-                We don&apos;t advise and leave. We build the machine. Then we make sure it runs.
+                We build the system.
               </p>
             </div>
             {/* What we're NOT — with contrast */}
