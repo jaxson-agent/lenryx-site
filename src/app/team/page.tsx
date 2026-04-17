@@ -69,69 +69,53 @@ export default function TeamPage() {
 
           {/* Header */}
           <div className="mb-20 text-center">
-            <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Founders</span>
-            {/* Animated triangle — spins slowly, each founder cycles through the top */}
+            {/* Triangle with fixed labels outside spinning group */}
             <div className="mb-10 flex justify-center">
-              <svg viewBox="0 0 300 260" className="w-64 md:w-96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <style>{`
-                  @keyframes spinTriangle {
-                    from { transform: rotate(0deg); }
-                    to   { transform: rotate(360deg); }
-                  }
-                  .spinning-group {
-                    transform-origin: 150px 130px;
-                    animation: spinTriangle 24s linear infinite;
-                  }
-                  @keyframes counterSpin {
-                    from { transform: rotate(0deg); }
-                    to   { transform: rotate(-360deg); }
-                  }
-                  .label-node {
-                    transform-box: fill-box;
-                    transform-origin: center;
-                    animation: counterSpin 24s linear infinite;
-                  }
-                `}</style>
+              <div className="relative inline-block">
+                {/* Fixed labels — HTML, always visible, always readable */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-5 text-xs font-medium text-gray-400 tracking-widest uppercase whitespace-nowrap">Strategy</div>
+                <div className="absolute bottom-0 left-4 translate-y-5 text-xs font-medium text-gray-400 tracking-widest uppercase whitespace-nowrap">Leadership</div>
+                <div className="absolute bottom-0 right-4 translate-y-5 text-xs font-medium text-gray-400 tracking-widest uppercase whitespace-nowrap">Systems</div>
 
-                {/* Spinning group — triangle + nodes */}
-                <g className="spinning-group">
-                  {/* Edges */}
-                  <line x1="150" y1="20" x2="40" y2="200" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
-                  <line x1="150" y1="20" x2="260" y2="200" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
-                  <line x1="40"  y1="200" x2="260" y2="200" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
-                  {/* Spokes */}
-                  <line x1="150" y1="130" x2="150" y2="20"  stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.4"/>
-                  <line x1="150" y1="130" x2="40"  y2="200" stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.4"/>
-                  <line x1="150" y1="130" x2="260" y2="200" stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.4"/>
-                  {/* Vertex nodes */}
-                  <circle cx="150" cy="20"  r="7" fill="#1B8EF8"/>
-                  <circle cx="40"  cy="200" r="7" fill="#1B8EF8"/>
-                  <circle cx="260" cy="200" r="7" fill="#1B8EF8"/>
-                  {/* Labels — counter-rotate so they stay readable */}
-                  <g className="label-node" style={{transformOrigin: "150px 6px"}}>
-                    <text x="150" y="9" textAnchor="middle" fill="#9CA3AF" fontSize="11" fontFamily="Inter, sans-serif" fontWeight="500">Strategy</text>
-                  </g>
-                  <g className="label-node" style={{transformOrigin: "40px 215px"}}>
-                    <text x="40" y="218" textAnchor="middle" fill="#9CA3AF" fontSize="11" fontFamily="Inter, sans-serif" fontWeight="500">Leadership</text>
-                  </g>
-                  <g className="label-node" style={{transformOrigin: "260px 215px"}}>
-                    <text x="260" y="218" textAnchor="middle" fill="#9CA3AF" fontSize="11" fontFamily="Inter, sans-serif" fontWeight="500">Systems</text>
-                  </g>
-                </g>
+                <svg viewBox="0 0 300 240" className="w-64 md:w-96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <style>{`
+                    @keyframes spinTriangle {
+                      from { transform: rotate(0deg); }
+                      to   { transform: rotate(360deg); }
+                    }
+                    .spinning-group {
+                      transform-origin: 150px 120px;
+                      animation: spinTriangle 24s linear infinite;
+                    }
+                  `}</style>
 
-                {/* Center — fixed, doesn't spin */}
-                <circle cx="150" cy="130" r="5" fill="none" stroke="#ffffff" strokeWidth="1.2">
-                  <animate attributeName="r" values="5;22;5" dur="2.5s" repeatCount="indefinite"/>
-                  <animate attributeName="stroke-opacity" values="0.8;0;0.8" dur="2.5s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="150" cy="130" r="5" fill="none" stroke="#1B8EF8" strokeWidth="0.8">
-                  <animate attributeName="r" values="5;22;5" dur="2.5s" begin="1.25s" repeatCount="indefinite"/>
-                  <animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="2.5s" begin="1.25s" repeatCount="indefinite"/>
-                </circle>
-                <circle cx="150" cy="130" r="4.5" fill="#ffffff">
-                  <animate attributeName="r" values="4.5;6;4.5" dur="2.5s" repeatCount="indefinite"/>
-                </circle>
-              </svg>
+                  {/* Spinning group — triangle + nodes only, no labels */}
+                  <g className="spinning-group">
+                    <line x1="150" y1="18"  x2="40"  y2="195" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
+                    <line x1="150" y1="18"  x2="260" y2="195" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
+                    <line x1="40"  y1="195" x2="260" y2="195" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
+                    <line x1="150" y1="120" x2="150" y2="18"  stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.4"/>
+                    <line x1="150" y1="120" x2="40"  y2="195" stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.4"/>
+                    <line x1="150" y1="120" x2="260" y2="195" stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.4"/>
+                    <circle cx="150" cy="18"  r="7" fill="#1B8EF8"/>
+                    <circle cx="40"  cy="195" r="7" fill="#1B8EF8"/>
+                    <circle cx="260" cy="195" r="7" fill="#1B8EF8"/>
+                  </g>
+
+                  {/* Center — fixed, pulsing */}
+                  <circle cx="150" cy="120" r="5" fill="none" stroke="#ffffff" strokeWidth="1.2">
+                    <animate attributeName="r" values="5;22;5" dur="2.5s" repeatCount="indefinite"/>
+                    <animate attributeName="stroke-opacity" values="0.8;0;0.8" dur="2.5s" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="150" cy="120" r="5" fill="none" stroke="#1B8EF8" strokeWidth="0.8">
+                    <animate attributeName="r" values="5;22;5" dur="2.5s" begin="1.25s" repeatCount="indefinite"/>
+                    <animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="2.5s" begin="1.25s" repeatCount="indefinite"/>
+                  </circle>
+                  <circle cx="150" cy="120" r="4.5" fill="#ffffff">
+                    <animate attributeName="r" values="4.5;6;4.5" dur="2.5s" repeatCount="indefinite"/>
+                  </circle>
+                </svg>
+              </div>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-5 tracking-tight leading-tight">
