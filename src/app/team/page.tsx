@@ -70,12 +70,46 @@ export default function TeamPage() {
           {/* Header */}
           <div className="mb-20">
             <span className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase">The Founders</span>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mt-4 mb-6 tracking-tight leading-tight">
-              Three founders.<br />
-              <span className="text-gray-500 font-normal">One operating layer.</span>
+            {/* Animated triangle — the visual story */}
+            <div className="mb-10">
+              <svg viewBox="0 0 300 220" className="w-48 md:w-64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Triangle edges */}
+                <line x1="150" y1="20" x2="40" y2="190" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
+                <line x1="150" y1="20" x2="260" y2="190" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
+                <line x1="40" y1="190" x2="260" y2="190" stroke="#1B8EF8" strokeWidth="1.5" strokeLinecap="round"/>
+                {/* Vertex nodes with labels */}
+                <circle cx="150" cy="20" r="6" fill="#1B8EF8"/>
+                <circle cx="40" cy="190" r="6" fill="#1B8EF8"/>
+                <circle cx="260" cy="190" r="6" fill="#1B8EF8"/>
+                {/* Spokes to centroid */}
+                <line x1="150" y1="133" x2="150" y2="20" stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.5"/>
+                <line x1="150" y1="133" x2="40" y2="190" stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.5"/>
+                <line x1="150" y1="133" x2="260" y2="190" stroke="#1B8EF8" strokeWidth="0.75" strokeOpacity="0.5"/>
+                {/* Center pulse */}
+                <circle cx="150" cy="133" r="5" fill="none" stroke="#ffffff" strokeWidth="1.2">
+                  <animate attributeName="r" values="5;20;5" dur="2.5s" repeatCount="indefinite"/>
+                  <animate attributeName="stroke-opacity" values="0.8;0;0.8" dur="2.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="150" cy="133" r="5" fill="none" stroke="#1B8EF8" strokeWidth="0.8">
+                  <animate attributeName="r" values="5;20;5" dur="2.5s" begin="1.25s" repeatCount="indefinite"/>
+                  <animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="2.5s" begin="1.25s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="150" cy="133" r="4" fill="#ffffff">
+                  <animate attributeName="r" values="4;5.5;4" dur="2.5s" repeatCount="indefinite"/>
+                </circle>
+                {/* Node labels */}
+                <text x="150" y="10" textAnchor="middle" fill="#6B7280" fontSize="10" fontFamily="Inter, sans-serif">Strategy</text>
+                <text x="20" y="208" textAnchor="middle" fill="#6B7280" fontSize="10" fontFamily="Inter, sans-serif">Leadership</text>
+                <text x="280" y="208" textAnchor="middle" fill="#6B7280" fontSize="10" fontFamily="Inter, sans-serif">Systems</text>
+              </svg>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-5 tracking-tight leading-tight">
+              The triangle isn&apos;t decoration.
             </h1>
-            <p className="text-gray-400 text-xl max-w-2xl leading-relaxed mb-10">
-              Jason, JM, and Andreas each bring a discipline that the others can&apos;t replicate — and together they cover every dimension of execution. Strategy sets the direction. Leadership drives the people. Systems make it scale. LENRYX is what happens when all three move together.
+            <p className="text-gray-400 text-lg max-w-xl leading-relaxed mb-10">
+              Each node is a founder. Each line is where two of them overlap. The center — where all three converge — is the force multiplier.<br /><br />
+              That&apos;s where LENRYX operates.
             </p>
             <ul className="space-y-4 max-w-xl">
               {[
