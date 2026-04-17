@@ -258,7 +258,7 @@ export default function Home() {
                 We build the system.
               </p>
             </div>
-            {/* What we are */}
+            {/* What we are — four pillars */}
             <div className="border border-white/5 rounded-xl p-8 bg-[#0A0A0A]">
               <p className="text-[#1B8EF8] text-xs tracking-[0.2em] uppercase mb-6">What we are</p>
               <ul className="space-y-5">
@@ -268,9 +268,12 @@ export default function Home() {
                   { label: "A force multiplier", desc: "We amplify what already works by building the infrastructure around it." },
                   { label: "Accountable partners", desc: "We're measured by execution — not deliverables, not frameworks, results." },
                 ].map((item) => (
-                  <li key={item.label} className="flex flex-col gap-1">
-                    <span className="text-white text-sm font-medium">{item.label}</span>
-                    <span className="text-gray-500 text-sm leading-relaxed">{item.desc}</span>
+                  <li key={item.label} className="flex items-start gap-3">
+                    <span className="text-[#1B8EF8] mt-0.5 shrink-0">→</span>
+                    <span>
+                      <span className="text-white text-sm font-medium">{item.label} — </span>
+                      <span className="text-gray-500 text-sm">{item.desc}</span>
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -313,28 +316,30 @@ export default function Home() {
             ))}
           </div>
 
-          {/* The Model — horizontal flow directly below pillars */}
+          {/* The Model — horizontally scrollable strip */}
           <div className="mt-14 pt-10 border-t border-white/5">
             <p className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase mb-8">The Model</p>
-            <div className="flex flex-wrap items-center gap-0">
-              {[
-                { label: "Intelligence", sub: "What you know" },
-                { label: "Strategy", sub: "What to do" },
-                { label: "Leadership", sub: "Who drives it" },
-                { label: "Systems", sub: "How it scales" },
-                { label: "Output", sub: "Measurable results" },
-              ].map((step, i) => (
-                <div key={step.label} className="flex items-center">
-                  <div className="flex flex-col items-center text-center px-4 py-2">
-                    <div className="w-9 h-9 rounded-full border border-[#1B8EF8]/50 bg-black flex items-center justify-center mb-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#1B8EF8]" />
+            <div className="overflow-x-auto pb-2 -mx-2 px-2">
+              <div className="flex items-center min-w-max">
+                {[
+                  { label: "Intelligence", sub: "What you know" },
+                  { label: "Strategy", sub: "What to do" },
+                  { label: "Leadership", sub: "Who drives it" },
+                  { label: "Systems", sub: "How it scales" },
+                  { label: "Output", sub: "Measurable results" },
+                ].map((step, i) => (
+                  <div key={step.label} className="flex items-center">
+                    <div className="flex flex-col items-center text-center px-5 py-2">
+                      <div className="w-10 h-10 rounded-full border border-[#1B8EF8]/50 bg-black flex items-center justify-center mb-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#1B8EF8]" />
+                      </div>
+                      <p className="text-white text-xs font-semibold whitespace-nowrap">{step.label}</p>
+                      <p className="text-gray-600 text-xs mt-0.5 whitespace-nowrap">{step.sub}</p>
                     </div>
-                    <p className="text-white text-xs font-semibold whitespace-nowrap">{step.label}</p>
-                    <p className="text-gray-600 text-xs mt-0.5 whitespace-nowrap">{step.sub}</p>
+                    {i < 4 && <div className="w-8 md:w-12 h-px bg-[#1B8EF8]/30 shrink-0" />}
                   </div>
-                  {i < 4 && <div className="w-6 md:w-10 h-px bg-[#1B8EF8]/25 shrink-0" />}
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>

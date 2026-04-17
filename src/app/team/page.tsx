@@ -74,9 +74,25 @@ export default function TeamPage() {
               Three perspectives.<br />
               <span className="text-gray-500 font-normal">One point of view.</span>
             </h1>
-            <p className="text-gray-400 text-xl max-w-2xl leading-relaxed">
+            <p className="text-gray-400 text-xl max-w-2xl leading-relaxed mb-10">
               LENRYX wasn&apos;t built by assigning lanes. It was built by three people whose thinking naturally intersects — strategy, leadership, and systems that don&apos;t just inform each other, they amplify each other. The output is greater than any one of them working alone.
             </p>
+            <ul className="space-y-4 max-w-xl">
+              {[
+                { label: "Operators", desc: "We work inside your organization — not from a slide deck at a distance." },
+                { label: "Architects", desc: "We design and build the systems that connect strategy to output." },
+                { label: "A force multiplier", desc: "We amplify what already works by building the infrastructure around it." },
+                { label: "Accountable partners", desc: "We're measured by execution — not deliverables, not frameworks, results." },
+              ].map((item) => (
+                <li key={item.label} className="flex items-start gap-3">
+                  <span className="text-[#1B8EF8] mt-0.5 shrink-0">→</span>
+                  <span>
+                    <span className="text-white text-sm font-medium">{item.label} — </span>
+                    <span className="text-gray-500 text-sm">{item.desc}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Team cards — full detail */}
