@@ -76,13 +76,13 @@ export default function TeamPage() {
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold text-white mt-2 mb-5 tracking-tight leading-tight">
-              The triangle isn&apos;t decoration.
+              No hierarchy. No silos. Just execution.
             </h1>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
               Most organizations have strategy that doesn&apos;t get implemented, leadership that isn&apos;t systemized, and technology that isn&apos;t fully leveraged. Not because the pieces are missing — because there&apos;s no unified layer connecting them.
             </p>
             <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed mb-10">
-              That&apos;s the problem LENRYX was built to solve. And the three people on this page are the reason it can.
+              That&apos;s the problem LENRYX was built to solve. Our founders and team bring the strategy, leadership, and systems capability to close that gap — and the track record to back it.
             </p>
             <ul className="space-y-4 max-w-xl mx-auto text-left">
               {[
@@ -104,6 +104,7 @@ export default function TeamPage() {
 
           {/* Team cards — full detail */}
           <div className="space-y-8">
+            <p className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase mb-2">Founders</p>
             {team.map((m, i) => (
               <div key={m.name} className="group bg-[#0A0A0A] rounded-xl border border-white/5 hover:border-[#1B8EF8]/20 transition-all duration-300 overflow-hidden">
                 <div className="h-0.5 bg-[#1B8EF8]" />

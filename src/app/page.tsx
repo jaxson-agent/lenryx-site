@@ -314,8 +314,9 @@ export default function Home() {
           {/* The Model — horizontally scrollable strip */}
           <div className="mt-14 pt-10 border-t border-white/5">
             <p className="text-[#1B8EF8] text-xs font-medium tracking-[0.25em] uppercase mb-8">The Model</p>
-            <div className="overflow-x-auto pb-3 -mx-2 px-2 scrollbar-thin-blue">
-              <div className="flex items-center min-w-max">
+            {/* Overflow visible on right to hint scrollability */}
+            <div className="overflow-x-auto pb-3 scrollbar-thin-blue" style={{maskImage: "linear-gradient(to right, black 85%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, black 85%, transparent 100%)"}}>
+              <div className="flex items-center min-w-max pr-16">
                 {[
                   { label: "Intelligence", sub: "What you know" },
                   { label: "Strategy", sub: "What to do" },
