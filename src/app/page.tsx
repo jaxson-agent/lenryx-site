@@ -262,7 +262,7 @@ export default function Home() {
                 {[
                   { label: "Operators, not advisors", desc: "We focus on what actually moves — not on what looks good in a deck." },
                   { label: "Systems thinkers", desc: "We connect strategy, people, and process into one working layer." },
-                  { label: "A force multiplier", desc: "AI-powered systems compress what used to take months into days, and days into hours." },
+                  { label: "A force multiplier", desc: "AI powered systems compress what used to take months into days, and days into hours." },
                   { label: "Execution-focused", desc: "The goal is always output — not a deliverable, not a framework, results." },
                 ].map((item) => (
                   <li key={item.label} className="flex items-start gap-3">

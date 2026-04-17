@@ -14,7 +14,7 @@ const team = [
     pillar: "Systems + AI",
     location: "Palo Alto, CA",
     bio: "Purpose-driven AI enthusiast and software engineer with deep technical depth in software engineering, fintech, and startup infrastructure.",
-    extended: "Andreas is the systems architect who translates strategy and leadership direction into scalable, intelligent infrastructure. His background spans fintech, startup engineering, and AI-native systems — giving LENRYX the technical credibility to build operating layers that actually run at scale.",
+    extended: "Andreas is the systems architect who translates strategy and leadership direction into scalable, intelligent infrastructure. His background spans fintech, startup engineering, and AI native systems — giving LENRYX the technical credibility to build operating layers that actually run at scale.",
     edge: "The systems architect who turns strategy into scalable, intelligent execution.",
     links: [
       { label: "LinkedIn", href: "https://linkedin.com/in/andreaslengyels" },
@@ -81,7 +81,7 @@ export default function TeamPage() {
               {[
                 { label: "Operators, not advisors", desc: "We focus on what actually moves — not on what looks good in a deck." },
                 { label: "Systems thinkers", desc: "We connect strategy, people, and process into one working layer." },
-                { label: "A force multiplier", desc: "AI-powered systems compress what used to take months into days, and days into hours." },
+                { label: "A force multiplier", desc: "AI powered systems compress what used to take months into days, and days into hours." },
                 { label: "Execution-focused", desc: "The goal is always output — not a deliverable, not a framework, results." },
               ].map((item) => (
                 <li key={item.label} className="flex items-start gap-3">
