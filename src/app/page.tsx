@@ -190,20 +190,14 @@ export default function Home() {
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
         <NetworkCanvas />
         <div className="relative z-10 max-w-4xl mx-auto">
-          {/* Logo — correct 3:2 aspect ratio (1536×1024) */}
-          <div className="mx-auto mb-6" style={{ width: 300, height: 200 }}>
-            <Image
-              src="/lenryx-logo.jpg"
-              alt="LENRYX.ai"
-              width={300}
-              height={200}
-              className="object-contain w-full h-full"
-              priority
-            />
+          {/* Animated node — hero centerpiece */}
+          <div className="flex justify-center mb-6">
+            <AnimatedNodeIcon size={96} />
           </div>
-          {/* Animated node icon — echoes logo motif, pulses */}
-          <div className="flex justify-center mb-8">
-            <AnimatedNodeIcon size={72} />
+          {/* Wordmark as text */}
+          <div className="flex items-baseline justify-center gap-0 mb-10">
+            <span className="text-white font-bold tracking-[0.18em] text-4xl md:text-5xl uppercase">LENRYX</span>
+            <span className="text-[#1B8EF8] font-bold tracking-[0.1em] text-4xl md:text-5xl">.ai</span>
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight mb-6">
             Where Intelligence<br />
